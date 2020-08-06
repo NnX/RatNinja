@@ -6,12 +6,13 @@ public class EnemyMover : MonoBehaviour
 {
     [SerializeField] private float move_Speed = 1f;
     private RectTransform targetTransform;
-
+    public int damage = 20;
 
     void Update()
     {
+
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetTransform.position.x,
-                                   targetTransform.position.y - 0.9f, 0f),
+                                   targetTransform.position.y, 1f),
                        move_Speed * Time.deltaTime);
     }
 
@@ -21,11 +22,8 @@ public class EnemyMover : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Player") {
+            collision.gameObject.GetComponent<PlayerHealth>().ApplyDamage(damage);
             Destroy(this.gameObject);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        //Debug.Log("OnTriggerEnter2D" + collision.name);
-    }
+    } 
 }
