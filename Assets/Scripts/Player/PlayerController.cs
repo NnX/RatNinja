@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.D)) {
-            anim.Play("StrikeRight");
+            anim.Play("KungfuKickRight");
         } else if (Input.GetKeyDown(KeyCode.A)) {
-            anim.Play("StrikeLeft");
+            anim.Play("KungfuKickLeft");
         }
 
         if (Input.touchCount > 0) {
@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour {
             Debug.Log( "Touch Position : " + touch.position);
 
             if(touch.position.x > (Screen.width / 2)) {
-                anim.Play("StrikeRight");
+                anim.Play("KungfuKickRight");
             } else if (touch.position.x < (Screen.width / 2)) {
-                anim.Play("StrikeLeft");
+                anim.Play("KungfuKickLeft");
             }
         }  
     }
