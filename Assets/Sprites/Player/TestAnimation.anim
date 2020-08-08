@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KungfuKickLeft
+  m_Name: TestAnimation
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,19 +18,6 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
-  - curve:
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: d29a51a1ecc3bc843a0014280ab21318, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
-    attribute: m_Sprite
-    path: Char
-    classID: 212
-    script: {fileID: 0}
   - curve:
     - time: 0
       value: {fileID: 0}
@@ -44,6 +31,17 @@ AnimationClip:
     path: PunchSmoke
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 44f99c265611e5b4e81e3f399c62b047, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: d29a51a1ecc3bc843a0014280ab21318, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
+    attribute: m_Sprite
+    path: Char
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
@@ -52,28 +50,27 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 751630497
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    - serializedVersion: 2
       path: 899100673
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 751630497
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d29a51a1ecc3bc843a0014280ab21318, type: 3}
-    - {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
-    - {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
-    - {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
     - {fileID: 0}
     - {fileID: 21300000, guid: 23f64c1b04c46be41a27cae1f40f239e, type: 3}
     - {fileID: 21300000, guid: e6cca6ca5adfc2e46a463809bbaffaa7, type: 3}
     - {fileID: 21300000, guid: daf06645f39f8e84d934c91130ebf62d, type: 3}
+    - {fileID: 21300000, guid: 44f99c265611e5b4e81e3f399c62b047, type: 3}
+    - {fileID: 21300000, guid: d29a51a1ecc3bc843a0014280ab21318, type: 3}
+    - {fileID: 21300000, guid: 9b270b45c33adf643a229328c9a8edc9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -98,18 +95,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.16666667
-    functionName: AllowDamageCollision
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.33333334
-    functionName: DenyDamageCollision
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

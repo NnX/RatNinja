@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private float speedDelta = 7f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float spawnDelay = 1f;
+    [SerializeField] private float spawnDelayDelta = 2f;
     [SerializeField] private GameObject ememyPrefab;
     [SerializeField] private RectTransform targetTransform;
     [SerializeField] Transform spawnPoint;
@@ -20,8 +24,8 @@ public class EnemySpawner : MonoBehaviour
         while (true) {
             enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
 
-            enemy.GetComponent<EnemyMover>().SetTargetPosition(targetTransform);
-            yield return new WaitForSeconds(Random.Range(2.5f, 4f));
+            enemy.GetComponent<EnemyMover>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
+            yield return new WaitForSeconds(Random.Range(spawnDelay, spawnDelayDelta));
         }
 
     }
