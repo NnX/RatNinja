@@ -23,7 +23,6 @@ public class EnemyMover : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log($"collisio = {collision.gameObject.tag}");
         if (collision.gameObject.tag == "Player") {
             collision.gameObject.GetComponent<PlayerHealth>().ApplyDamage(damage);
             Destroy(this.gameObject);
