@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 807127052}
-  audio: {fileID: 807127058}
+  audioSource: {fileID: 807127058}
 --- !u!114 &807127056
 MonoBehaviour:
   m_ObjectHideFlags: 0
