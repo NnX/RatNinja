@@ -2,43 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
     [SerializeField] private Animator anim;
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioSource audioSource;
 
     private bool touchBegan;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D)) {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
             anim.Play("KungfuKickRight");
-            audio.Play();
+            audioSource.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
             anim.Play("KungfuKickLeft");
-            audio.Play();
+            audioSource.Play();
         }
 
-        if (Input.touchCount > 0) {
+        if (Input.touchCount > 0)
+        {
             Touch touch = Input.GetTouch(0);
-            if(touch.phase == TouchPhase.Began && !touchBegan) {
+            if (touch.phase == TouchPhase.Began && !touchBegan)
+            {
                 touchBegan = true;
                 Debug.Log("Touch Position : " + touch.position);
 
-                if (touch.position.x > (Screen.width / 2)) {
+                if (touch.position.x > (Screen.width / 2))
+                {
                     anim.Play("KungfuKickRight");
-                    audio.Play();
-                } else if (touch.position.x < (Screen.width / 2)) {
+                    audioSource.Play();
+                }
+                else if (touch.position.x < (Screen.width / 2))
+                {
                     anim.Play("KungfuKickLeft");
-                    audio.Play();
+                    audioSource.Play();
                 }
             }
 
-            if (touch.phase == TouchPhase.Ended) {
+            if (touch.phase == TouchPhase.Ended)
+            {
                 touchBegan = false;
             }
-        }  
+        }
     }
 }

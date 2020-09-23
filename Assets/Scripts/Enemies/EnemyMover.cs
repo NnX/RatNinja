@@ -12,20 +12,23 @@ public class EnemyMover : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(
-                        transform.position, 
+                        transform.position,
                         new Vector3(targetTransform.position.x, transform.position.y, 1f),
                         move_Speed * Time.deltaTime);
     }
 
-    public void SetTargetPosition(RectTransform targetTransform, float move_Speed, float speed_delta) {
+    public void SetTargetPosition(RectTransform targetTransform, float move_Speed, float speed_delta)
+    {
         this.move_Speed = Random.Range(move_Speed, move_Speed + speed_delta);
         this.targetTransform = targetTransform;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Player") {
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
             collision.gameObject.GetComponent<PlayerHealth>().ApplyDamage(damage);
             Destroy(this.gameObject);
         }
-    } 
+    }
 }
