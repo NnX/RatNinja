@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; } = null;
+    private LevelManager _levelManager;
 
     private void Awake()
     {
@@ -18,6 +19,6 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
     }
 }

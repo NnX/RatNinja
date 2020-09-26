@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject ememyPrefab;
     [SerializeField] private RectTransform targetTransform;
     [SerializeField] Transform spawnPoint;
+    
 
     private GameObject enemy;
 
@@ -23,7 +24,6 @@ public class EnemySpawner : MonoBehaviour
 
         while (true) {
             enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
-
             enemy.GetComponent<EnemyMover>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
             yield return new WaitForSeconds(Random.Range(spawnDelay, spawnDelayDelta));
         }
