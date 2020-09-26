@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; } = null;
-    private LevelManager _levelManager;
 
     private void Awake()
     {
@@ -17,8 +16,13 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public void LoadLevel(int level)
+    {
+        LevelController.Instance.LoadLevel(level);
+    }
+
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
+        LevelController.Instance.RestartGame();
     }
 }
