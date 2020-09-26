@@ -1760,7 +1760,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8079392603681820815, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2,
           type: 3}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: OnPauseButtonCick
+        m_MethodName: ShowPauseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

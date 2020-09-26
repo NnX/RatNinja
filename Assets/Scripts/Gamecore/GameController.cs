@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverWindowPrefab;
+    [SerializeField] private GameObject pauseWindowPrefab;
     public static GameController Instance { get; private set; } = null;
     
     private bool _isGameOnPause = false;
@@ -51,5 +52,11 @@ public class GameController : MonoBehaviour
 
     public void ShowGameOverWindow() {
         Instantiate(gameOverWindowPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+    }
+    
+    public void ShowPauseWindow() {
+        var pauseWindow = Instantiate(pauseWindowPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        var canvas = FindObjectOfType<Canvas>();
+        pauseWindow.transform.SetParent(canvas.transform, false);
     }
 }
