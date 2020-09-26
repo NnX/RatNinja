@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         if(healthValue <= 0) {
             healthValue = 0;
 
-            GameController.Instance.RestartGame();
+            GameController.Instance.ShowGameOverWindow();
         }
 
         healthBar.value = healthValue;

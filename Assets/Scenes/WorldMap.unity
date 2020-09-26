@@ -243,7 +243,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 650794801}
+      - m_Target: {fileID: 8079392603681820815, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2,
+          type: 3}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 3
@@ -415,18 +416,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &650794801 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8079392603681820815, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 8079392603047839678}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f810c5dbbabc8343b6a63d687e8a92c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &905795916
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,5 +820,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 8079392603681820815, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2,
+        type: 3}
+      propertyPath: gameOverWindowPrefab
+      value: 
+      objectReference: {fileID: 5109449306774563050, guid: c6aed1901ae27744b999d43035eeff2c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2, type: 3}

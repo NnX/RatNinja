@@ -3,7 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOverWindowPrefab;
     public static GameController Instance { get; private set; } = null;
+    
     private bool _isGameOnPause = false;
     private void Awake()
     {
@@ -26,6 +28,10 @@ public class GameController : MonoBehaviour
         LevelController.Instance.RestartGame();
     }
 
+    public void ToWorldMap() {
+        LevelController.Instance.LoadLevel(0);
+    }
+
     public void OnPauseButtonCick() {
         if(_isGameOnPause) {
             _isGameOnPause = false;
@@ -41,5 +47,9 @@ public class GameController : MonoBehaviour
 
     public void ResumeGame() {
         Time.timeScale = 1f;
+    }
+
+    public void ShowGameOverWindow() {
+        Instantiate(gameOverWindowPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }

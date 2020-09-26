@@ -22,9 +22,12 @@ public class LevelController : IGameController
     public void LoadLevel(int level)
     {
         _currentLevel = level;
-        SceneManager.LoadScene("Level_" + level);
+        if(level == 0) {
+            SceneManager.LoadScene("WorldMap");
+        } else {
+            SceneManager.LoadScene("Level_" + level);
+        }
     }
-
 
     public void RestartGame()
     {
