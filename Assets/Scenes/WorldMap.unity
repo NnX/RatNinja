@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 459, y: 293.09998}
-  m_SizeDelta: {x: 412.86133, y: 218.83612}
+  m_AnchoredPosition: {x: 731.7, y: 318.19995}
+  m_SizeDelta: {x: 664.1205, y: 352.0154}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286712455
 MonoBehaviour:
@@ -291,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425, y: 465.09998}
-  m_SizeDelta: {x: 250.04591, y: 129.226}
+  m_AnchoredPosition: {x: 677, y: 595}
+  m_SizeDelta: {x: 402.21893, y: 207.8704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484938156
 MonoBehaviour:
@@ -551,8 +551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 520, y: -22}
-  m_SizeDelta: {x: 3248.7632, y: 1293.3754}
+  m_AnchoredPosition: {x: 831.1, y: -195}
+  m_SizeDelta: {x: 5269.58, y: 2124.4404}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1395279306
 MonoBehaviour:
@@ -627,7 +627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.2, y: 31.159}
+  m_AnchoredPosition: {x: 26, y: 28}
   m_SizeDelta: {x: 239.3894, y: 71.47834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928598483
@@ -652,11 +652,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 56
+    m_FontSize: 89
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 89
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0.5660378, b: 0.010980661, a: 0.5}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!1 &1950084801

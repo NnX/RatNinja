@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            anim.Play("KungfuKickRight");
+            anim.Play("PIxelNinjaPunchRight");
             audioSource.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            anim.Play("KungfuKickLeft");
+            anim.Play("PixelNinjaPunchLeft");
             audioSource.Play();
         }
 
@@ -33,12 +33,12 @@ public class PlayerController : MonoBehaviour
 
                 if (touch.position.x > (Screen.width / 2))
                 {
-                    anim.Play("KungfuKickRight");
+                    anim.Play("PIxelNinjaPunchRight");
                     audioSource.Play();
                 }
                 else if (touch.position.x < (Screen.width / 2))
                 {
-                    anim.Play("KungfuKickLeft");
+                    anim.Play("PixelNinjaPunchLeft");
                     audioSource.Play();
                 }
             }

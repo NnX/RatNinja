@@ -5,16 +5,19 @@ using UnityEngine;
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] private float speed_delta = 7f;
+    [SerializeField] private Animator anim;
     private float move_Speed = 1f;
     private RectTransform targetTransform;
     public int damage = 20;
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(
-                        transform.position,
-                        new Vector3(targetTransform.position.x, transform.position.y, 1f),
-                        move_Speed * Time.deltaTime);
+        if(targetTransform != null) {
+            transform.position = Vector3.MoveTowards(
+                            transform.position,
+                            new Vector3(targetTransform.position.x, transform.position.y, 1f),
+                            move_Speed * Time.deltaTime);
+        }
     }
 
     public void SetTargetPosition(RectTransform targetTransform, float move_Speed, float speed_delta)

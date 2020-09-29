@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f810c5dbbabc8343b6a63d687e8a92c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverWindowPrefab: {fileID: 6022187371413610365, guid: dcf088bc9bf2f6149aac4b19a26a32ec,
+  slainedWindow: {fileID: 6022187371413610365, guid: dcf088bc9bf2f6149aac4b19a26a32ec,
     type: 3}
   pauseWindowPrefab: {fileID: 7911430204542490075, guid: 1df9d4b09090e9b469d61b17bd4b3519,
     type: 3}
