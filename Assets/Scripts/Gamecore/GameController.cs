@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverWindowPrefab;
+    [SerializeField] private GameObject slainedWindow;
     [SerializeField] private GameObject pauseWindowPrefab;
     public static GameController Instance { get; private set; } = null;
     
@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        ResumeGame();
         LevelController.Instance.RestartGame();
     }
 
@@ -51,7 +52,9 @@ public class GameController : MonoBehaviour
     }
 
     public void ShowGameOverWindow() {
-        Instantiate(gameOverWindowPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        var slaineWindow = Instantiate(slainedWindow, new Vector3(0, 0, 0), Quaternion.identity);
+        var canvas = FindObjectOfType<Canvas>();
+        slaineWindow.transform.SetParent(canvas.transform, false);
     }
     
     public void ShowPauseWindow() {

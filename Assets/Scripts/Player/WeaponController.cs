@@ -8,6 +8,7 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField] Text points; 
     [SerializeField] private GameObject damagePoint;
+    [SerializeField] private GameObject ratDeadPrefab;
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -16,7 +17,10 @@ public class WeaponController : MonoBehaviour
             int pts = System.Int32.Parse(points.text);
             pts++;
             points.text = pts.ToString();
+
+            var enemy = Instantiate(ratDeadPrefab, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
+            enemy.GetComponent<EnemyDeadController>().PlayDeath();
         }
     }
 

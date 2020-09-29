@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6022187370166864190}
   - component: {fileID: 6022187370166864128}
   - component: {fileID: 6022187370166864131}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Revenge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -458.6, y: -287.61}
-  m_SizeDelta: {x: -919.1085, y: -575.21027}
+  m_AnchoredPosition: {x: -725.1, y: -324.37}
+  m_SizeDelta: {x: -1791.0986, y: -1084.4397}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6022187370166864129
 CanvasRenderer:
@@ -69,11 +69,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 229
+    m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 229
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6022187371195446353}
   - component: {fileID: 6022187371195446350}
   - component: {fileID: 6022187371195446352}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.50006104, y: 286.2}
+  m_AnchoredPosition: {x: 0.5, y: 286.2}
   m_SizeDelta: {x: -0.9998779, y: -574.42053}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6022187371195446353
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 6022187371344349886}
   - component: {fileID: 6022187371344349824}
   - component: {fileID: 3739528214830951893}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Retreat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,8 +283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 500.92, y: -291}
-  m_SizeDelta: {x: -1001.8483, y: -574.42053}
+  m_AnchoredPosition: {x: 764.9, y: -321.3}
+  m_SizeDelta: {x: -1713.9735, y: -1090.5756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6022187371344349825
 CanvasRenderer:
@@ -316,11 +316,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 229
+    m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 229
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -410,7 +410,8 @@ GameObject:
   - component: {fileID: 6022187371413610364}
   - component: {fileID: 6022187371413610366}
   - component: {fileID: 6022187371413610367}
-  m_Layer: 5
+  - component: {fileID: 117602828381012979}
+  m_Layer: 31
   m_Name: SlainedWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,3 +478,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &117602828381012979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6022187371413610365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb4d5d2dfa4f3f4fbcb8f46ecc7907b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
