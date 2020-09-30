@@ -18,9 +18,11 @@ public class WeaponController : MonoBehaviour
             pts++;
             points.text = pts.ToString();
 
-            var enemy = Instantiate(ratDeadPrefab, collision.gameObject.transform.position, Quaternion.identity);
+            var enemy = Instantiate(ratDeadPrefab, collision.gameObject.transform.localPosition, Quaternion.identity);
+
+            float scaleX = collision.gameObject.transform.localScale.x;
             Destroy(collision.gameObject);
-            enemy.GetComponent<EnemyDeadController>().PlayDeath();
+            enemy.GetComponent<EnemyDeadController>().PlayDeath(scaleX);
         }
     }
 
