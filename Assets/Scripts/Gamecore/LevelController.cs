@@ -31,6 +31,6 @@ public class LevelController : IGameController
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level_" + _currentLevel, LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_" + _currentLevel);
     }
 }
