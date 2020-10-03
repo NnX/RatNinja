@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
     [SerializeField] private GameObject slainedWindow;
     [SerializeField] private GameObject pauseWindowPrefab;
 
+    [HideInInspector]
+    public SaveKeeper _saveKeeper;
     public static GameController Instance { get; private set; } = null;
 
     private bool _isGameOnPause = false;
@@ -16,6 +21,12 @@ public class GameController : MonoBehaviour {
 
         Instance = this;
         DontDestroyOnLoad (this.gameObject);
+    }
+
+    private void Start () {
+        _saveKeeper = new SaveKeeper();
+        _saveKeeper.LoadDataBox();
+        _saveKeeper.SaveDataBox();
     }
 
     public bool GameStoped () {
