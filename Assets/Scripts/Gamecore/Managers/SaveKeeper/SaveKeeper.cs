@@ -13,10 +13,16 @@ public class SaveKeeper {
 
     public SaveKeeper () {
         _savePath = Application.persistentDataPath + "SaveBox.dat";
+        LoadDataBox ();
     }
 
     public int GetLevelKillsCount (int level) {
-        return _saveDataBox.LevelKills[level];
+        if(_saveDataBox.LevelKills.ContainsKey(level)) {
+            return _saveDataBox.LevelKills[level];
+        } else {
+            return 0;
+        }
+        
     }
     
     public void SetLevelKillsCount (int level, int kills) {
@@ -38,7 +44,7 @@ public class SaveKeeper {
 
     public bool SaveDataBox () {
         if (_isSaving) {
-            Debug.LogWarning ("Saving in progress");
+            Debug.Log ("Saving in progress");
             return false;
         }
 
@@ -65,7 +71,7 @@ public class SaveKeeper {
                 file.Close ();
             }
             _isSaving = false;
-            Debug.LogWarning ($"Saved data box, path = {_savePath}");
+            Debug.Log ($"Saved data box, path = {_savePath}");
         }
 
         return true;
@@ -78,11 +84,11 @@ public class SaveKeeper {
             if(fileStram == null || fileStram.Length == 0) {
                 _saveDataBox = new SaveDataBox();
                 _saveDataBox.LevelKills = new Dictionary<int, int>();
-                Debug.LogWarning ("Created new save file box");
+                Debug.Log ("Created new save file box");
             } else {
                  BinaryFormatter formatter = new BinaryFormatter ();
                 _saveDataBox = (SaveDataBox) formatter.Deserialize (fileStram);
-                Debug.LogWarning ("Loaded save file box");
+                Debug.Log ("Loaded save file box");
             }
 
         } catch (Exception ex) {
