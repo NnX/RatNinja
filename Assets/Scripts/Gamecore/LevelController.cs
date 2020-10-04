@@ -1,10 +1,15 @@
 ﻿using UnityEngine.SceneManagement;
-using UnityEngine;
 public class LevelController : IGameController
 {
     private int _currentLevel;
     private static LevelController _instance;
-
+    public int CurrentLevel
+    {
+        get
+        {
+            return _currentLevel;
+        }
+    }
     public static LevelController Instance
     {
         get
@@ -22,9 +27,12 @@ public class LevelController : IGameController
     public void LoadLevel(int level)
     {
         _currentLevel = level;
-        if(level == 0) {
+        if (level == 0)
+        {
             SceneManager.LoadScene("WorldMap");
-        } else {
+        }
+        else
+        {
             SceneManager.LoadScene("Level_" + level);
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class WeaponController : MonoBehaviour
@@ -16,6 +14,7 @@ public class WeaponController : MonoBehaviour
         if (collision.tag == "Enemy") {
             int pts = System.Int32.Parse(points.text);
             pts++;
+            GameController.Instance.levelKills = pts;
             points.text = pts.ToString();
 
             var enemy = Instantiate(ratDeadPrefab, collision.gameObject.transform.localPosition, Quaternion.identity);
