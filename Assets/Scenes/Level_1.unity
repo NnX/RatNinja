@@ -930,6 +930,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.33
       objectReference: {fileID: 0}
@@ -945,6 +950,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -957,16 +967,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
         type: 3}
@@ -1917,8 +1917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a96c1386f6686488bc647a07607569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedDelta: 6
-  moveSpeed: 4
+  speedDelta: 2
+  moveSpeed: 10
   spawnDelay: 1
   spawnDelayDelta: 2
   ememyPrefab: {fileID: 1783325087311255380, guid: b4e48bb0fd9469a42baab5f7e385bbe7,
@@ -2074,8 +2074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a96c1386f6686488bc647a07607569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedDelta: 3
-  moveSpeed: 5
+  speedDelta: 2
+  moveSpeed: 10
   spawnDelay: 0
   spawnDelayDelta: 3
   ememyPrefab: {fileID: 9086023928404031421, guid: fe32ed43e51634c43b50ab1912e24b21,
@@ -2096,6 +2096,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.672
       objectReference: {fileID: 0}
@@ -2111,6 +2116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -2123,16 +2133,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7201288583685734806, guid: 7e1e78a1e65366043a2a47d3639c3f0f,
         type: 3}
