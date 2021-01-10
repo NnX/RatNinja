@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -64,7 +63,7 @@ public class SaveKeeper {
                 formatter.Serialize (file, save);
             }
 
-        } catch (System.Exception) {
+        } catch (Exception) {
             Debug.LogError ("Error during saving");
         } finally {
             if (file != null) {

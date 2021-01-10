@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] private float speed_delta = 7f;
     [SerializeField] private Animator anim;
+    
     private float move_Speed = 1f;
     private RectTransform targetTransform;
     public int damage = 20;
