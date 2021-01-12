@@ -20,7 +20,7 @@ public class MovingGround : MonoBehaviour
     private void MoveGround()
     {
         var ground1Position = new Vector3(firstGroundTransform.position.x, firstGroundTransform.position.y, firstGroundTransform.position.z);
-        Debug.Log($"[test] ground1Position= {ground1Position}");
+        //Debug.Log($"[test] ground1Position= {ground1Position}");
         var ground2Position = new Vector3(secondGroundTransform.position.x, secondGroundTransform.position.y, secondGroundTransform.position.z);
 
         ground1Position.x -= movingSpeed * Time.deltaTime;

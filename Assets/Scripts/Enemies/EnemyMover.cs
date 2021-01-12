@@ -29,8 +29,12 @@ public class EnemyMover : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().ApplyDamage(damage);
-            Destroy(this.gameObject);
+            var palplayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if(palplayerHealth != null)
+            {
+                palplayerHealth.ApplyDamage(damage);
+            }
+            Destroy(gameObject);
         }
     }
 }

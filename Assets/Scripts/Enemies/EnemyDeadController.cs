@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDeadController : MonoBehaviour
@@ -13,5 +12,13 @@ public class EnemyDeadController : MonoBehaviour
         } else {
             animator.Play("RatDeadRightToLeft");
         }
+
+        StartCoroutine(ClearDeadBody());
+    }
+
+    private IEnumerator ClearDeadBody()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
     }
 }
