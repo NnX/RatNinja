@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D myBody;
     private bool isGrounded;
     private bool jumped;
-    private float jumpPower = 12f;
+    private float jumpPower = 50f;
     private float defaultYposition;
 
     private void Awake() {
