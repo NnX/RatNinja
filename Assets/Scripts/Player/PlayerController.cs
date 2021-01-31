@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine; 
+﻿using UnityEngine; 
 
 public class PlayerController : MonoBehaviour {
     [SerializeField] private Animator anim;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private int jumpPower = 9;
 
     public Transform groundCheckPosition;
     public LayerMask groundLayer;
@@ -13,7 +12,6 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D myBody;
     private bool isGrounded;
     private bool jumped;
-    private float jumpPower = 50f;
     private float defaultYposition;
 
     private void Awake() {
@@ -74,27 +72,35 @@ public class PlayerController : MonoBehaviour {
             } 
         }
 
-        if (!jumped)
+        if (groundCheckPosition.position.y <= defaultYposition)
         {
-            if (groundCheckPosition.position.y <= defaultYposition)
-            {
-                myBody.velocity = new Vector2(myBody.velocity.x, 0);
-            }
-            else
-            {
-                myBody.velocity = new Vector2(myBody.velocity.x, -jumpPower);
-            }
+            jumped = false;
+        }
+        else
+        {
+            jumped = true;
         }
 
         void PlayerJump()
         {
-            Debug.Log($"[test] isGrounded= {isGrounded}");
-            if (jumped)
+            JumpCheck();
+            Debug.Log($"[test] isGrounded= {isGrounded}, jumped = {jumped}");
+            if (!jumped)
             { 
-                myBody.velocity = new Vector2(myBody.velocity.x, jumpPower);
-
-                //anim.SetBool("Jump", true);
+                myBody.AddForce(new Vector3(0, jumpPower), ForceMode2D.Impulse);
             }
         }
     } // update 
+
+    private void JumpCheck() {
+        if (groundCheckPosition.position.y <= defaultYposition)
+        {
+            jumped = false;
+        }
+        else
+        {
+            jumped = true;
+        }
+    }
+        
 }
