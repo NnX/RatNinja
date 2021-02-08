@@ -3,7 +3,8 @@
 public class PlayerController : MonoBehaviour {
     [SerializeField] private Animator anim;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private int jumpPower = 9;
+    [SerializeField] private int jumpPower = 3;
+    [SerializeField] float movingSpeed;
 
     public Transform groundCheckPosition;
     public LayerMask groundLayer;
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
     } // update 
-
+     
     private void JumpCheck() {
         if (groundCheckPosition.position.y <= defaultYposition)
         {
