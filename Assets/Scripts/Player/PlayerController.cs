@@ -16,7 +16,11 @@ public class PlayerController : MonoBehaviour {
     private float defaultYposition;
 
     private void Awake() {
-        GameController.Instance.ResumeGame ();
+        if(GameController.Instance != null)
+        {
+            GameController.Instance.ResumeGame();
+        }
+        
         myBody = GetComponent<Rigidbody2D>();
 
         defaultYposition = groundCheckPosition.position.y;
@@ -25,30 +29,23 @@ public class PlayerController : MonoBehaviour {
 
     void Update () {
 
-        if (GameController.Instance.GameStoped()) {
+        if (GameController.Instance != null && GameController.Instance.GameStoped()) {
             return;
         }
 
         if (Input.GetKeyDown (KeyCode.D)) {
-                                
-            anim.Play ("PIxelNinjaPunchRight");
+            PlayerJump();
+            anim.Play ("JumpAnimation");
             audioSource.Play ();
         }
 
-        if (Input.GetKeyDown (KeyCode.A)) {/*
-            anim.Play ("PixelNinjaPunchLeft");
-            audioSource.Play ();*/
+        if (Input.GetKeyDown (KeyCode.A)) {
+           /* anim.Play("PixelNinjaPunchLeft");*/
+            /*audioSource.Play ();*/
             //CheckIfGrounded();
-            jumped = true;
             PlayerJump();
+            anim.Play("JumpAnimation");
         }
-
-        if(Input.GetKeyUp(KeyCode.A))
-        {
-            jumped = false;
-        }
-
-
 
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch (0);
@@ -66,34 +63,30 @@ public class PlayerController : MonoBehaviour {
                     audioSource.Play ();*/
                 }
             }
-
-            if (touch.phase == TouchPhase.Ended) {
-                touchBegan = false;
-                jumped = false;
-            } 
         }
 
-        if (groundCheckPosition.position.y <= defaultYposition)
+        var currentJumpStatus = jumped;
+        JumpCheck();
+        if(currentJumpStatus == true && jumped == false)
         {
-            jumped = false;
-        }
-        else
-        {
-            jumped = true;
+            Debug.Log($"[test] LandAnimation");
+            anim.Play("LandAnimation");
         }
 
-        void PlayerJump()
-        {
-            JumpCheck();
-            Debug.Log($"[test] isGrounded= {isGrounded}, jumped = {jumped}");
-            if (!jumped)
-            { 
-                myBody.AddForce(new Vector3(0, jumpPower), ForceMode2D.Impulse);
-            }
-        }
+
     } // update 
-     
+    private void PlayerJump()
+    {
+        Debug.Log($"[test] isGrounded= {isGrounded}, jumped = {jumped}");
+        if (!jumped)
+        {
+            Debug.Log($"[test] jumped = {jumped}");
+            myBody.AddForce(new Vector3(0, jumpPower), ForceMode2D.Impulse);
+        }
+    }
+
     private void JumpCheck() {
+
         if (groundCheckPosition.position.y <= defaultYposition)
         {
             jumped = false;
@@ -101,6 +94,14 @@ public class PlayerController : MonoBehaviour {
         else
         {
             jumped = true;
+        }
+
+        
+        Debug.Log($"[test] isGrounded= {isGrounded}, jumped = {jumped}");
+
+        if (groundCheckPosition.position.y <= defaultYposition - 5)
+        {
+            GameController.Instance.ShowGameOverWindow();
         }
     }
         

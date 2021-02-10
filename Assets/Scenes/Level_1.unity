@@ -1243,7 +1243,7 @@ Animator:
   m_GameObject: {fileID: 311381942}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b82d5ecd5f11d9b48b4bbeff833504a9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0f4c7134fd481e74486e0680367354cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1271,7 +1271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.16}
+  m_AnchoredPosition: {x: 0, y: -1.51}
   m_SizeDelta: {x: 2.2906334, y: 2.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &311381945
@@ -1314,7 +1314,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 111
-  m_Sprite: {fileID: -6346258977927561028, guid: ba411f8a0706d7b47838743692f6661e,
+  m_Sprite: {fileID: -7542318345447912419, guid: 73ad4ed64e2baf745807ffa3b640cd1c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1478,7 +1478,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &311381950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1492,11 +1492,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14, y: -1.19}
+  m_Offset: {x: 0.14, y: -0.95}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.2906334, y: 2.92}
+    oldSize: {x: 1.8501209, y: 2.31}
     newSize: {x: 2.2906334, y: 2.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
