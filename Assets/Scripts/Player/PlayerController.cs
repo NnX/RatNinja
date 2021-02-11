@@ -57,10 +57,8 @@ public class PlayerController : MonoBehaviour {
                     anim.Play ("PIxelNinjaPunchRight");
                     audioSource.Play ();
                 } else if (touch.position.x < (Screen.width / 2)) {
-                    jumped = true;
                     PlayerJump();
-/*                    anim.Play ("PixelNinjaPunchLeft");
-                    audioSource.Play ();*/
+                    anim.Play("JumpAnimation");
                 }
             }
         }
@@ -69,6 +67,7 @@ public class PlayerController : MonoBehaviour {
         JumpCheck();
         if(currentJumpStatus == true && jumped == false)
         {
+            touchBegan = false;
             Debug.Log($"[test] LandAnimation");
             anim.Play("LandAnimation");
         }
