@@ -33,19 +33,17 @@ public class PlayerController : MonoBehaviour {
             return;
         }
 
-        if (Input.GetKeyDown (KeyCode.D)) {
-            PlayerJump();
-            anim.Play ("JumpAnimation");
-            audioSource.Play ();
-        }
-
-        if (Input.GetKeyDown (KeyCode.A)) {
-           /* anim.Play("PixelNinjaPunchLeft");*/
-            /*audioSource.Play ();*/
-            //CheckIfGrounded();
+        if (Input.GetKeyDown(KeyCode.A))
+        {
             PlayerJump();
             anim.Play("JumpAnimation");
         }
+
+        if (Input.GetKeyDown (KeyCode.D)) {
+            anim.Play ("SlideAnimation");
+        }
+
+
 
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch (0);
@@ -53,12 +51,14 @@ public class PlayerController : MonoBehaviour {
                 touchBegan = true;
                 Debug.Log ("Touch Position : " + touch.position);
 
-                if (touch.position.x > (Screen.width / 2)) {
-                    anim.Play ("PIxelNinjaPunchRight");
-                    audioSource.Play ();
-                } else if (touch.position.x < (Screen.width / 2)) {
+                if (touch.position.x < (Screen.width / 2)) {
                     PlayerJump();
                     anim.Play("JumpAnimation");
+                }
+
+                if (touch.position.x > (Screen.width / 2))
+                {
+                    anim.Play("SlideAnimation");
                 }
             }
         }
