@@ -1452,8 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 311381943}
   audioSource: {fileID: 311381946}
-  jumpPower: 9
-  movingSpeed: 4
+  jumpPower: 5
   groundCheckPosition: {fileID: 311381944}
   groundLayer:
     serializedVersion: 2
@@ -14113,7 +14112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1317874442}
-  movingSpeed: 3
+  movingSpeed: 5
 --- !u!1 &1338264813
 GameObject:
   m_ObjectHideFlags: 0
@@ -16745,7 +16744,7 @@ MonoBehaviour:
   - {fileID: 416835237}
   - {fileID: 93550311}
   - {fileID: 1446627611}
-  movingSpeed: 3
+  movingSpeed: 5
 --- !u!222 &249128189700934699
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -3,8 +3,7 @@
 public class PlayerController : MonoBehaviour {
     [SerializeField] private Animator anim;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private int jumpPower = 3;
-    [SerializeField] float movingSpeed;
+    [SerializeField] private float jumpPower = 1;
 
     public Transform groundCheckPosition;
     public LayerMask groundLayer;
@@ -43,12 +42,9 @@ public class PlayerController : MonoBehaviour {
             anim.Play ("SlideAnimation");
         }
 
-
-
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch (0);
             if (touch.phase == TouchPhase.Began && !touchBegan) {
-                touchBegan = true;
                 Debug.Log ("Touch Position : " + touch.position);
 
                 if (touch.position.x < (Screen.width / 2)) {
@@ -67,12 +63,9 @@ public class PlayerController : MonoBehaviour {
         JumpCheck();
         if(currentJumpStatus == true && jumped == false)
         {
-            touchBegan = false;
             Debug.Log($"[test] LandAnimation");
             anim.Play("LandAnimation");
         }
-
-
     } // update 
     private void PlayerJump()
     {
