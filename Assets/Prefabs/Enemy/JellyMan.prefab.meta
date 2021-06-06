@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 342b1765758dcab488416d2b848e13b9
+labels:
+- Enemy
 PrefabImporter:
   externalObjects: {}
   userData: 

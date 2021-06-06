@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6459880120201831406}
   - component: {fileID: 8148249233615861602}
   - component: {fileID: 4439940809371654961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RatBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 7718362272767080040, guid: ba411f8a0706d7b47838743692f6661e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
