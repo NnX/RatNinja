@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
         while (true) {
             enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
             enemy.GetComponent<EnemyMover>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
-            yield return new WaitForSeconds(Random.Range(spawnDelay, spawnDelayDelta));
+            yield return new WaitForSeconds(Random.Range(spawnDelay, spawnDelayDelta));//TODO optimize, will create new object every enemy spawn
         }
 
     }
