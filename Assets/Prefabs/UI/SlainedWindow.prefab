@@ -30,13 +30,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6022187371413610364}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 27, y: -805}
+  m_AnchoredPosition: {x: 27, y: -743}
   m_SizeDelta: {x: 867.96045, y: 218.4226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6022187370166864129
@@ -110,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -181,14 +183,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6022187371413610364}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.5, y: -118}
-  m_SizeDelta: {x: 2959, y: 239.76782}
+  m_AnchoredPosition: {x: 0, y: -118}
+  m_SizeDelta: {x: 1920, y: 239.7678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6022187371195446353
 CanvasRenderer:
@@ -220,7 +223,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 253
+    m_FontSize: 187
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -259,9 +262,8 @@ GameObject:
   - component: {fileID: 6022187371344349825}
   - component: {fileID: 6022187371344349886}
   - component: {fileID: 6022187371344349824}
-  - component: {fileID: 3739528214830951893}
   m_Layer: 31
-  m_Name: Retreat
+  m_Name: HiScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,14 +279,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6022187371413610364}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 24, y: -476}
-  m_SizeDelta: {x: 960.3229, y: 226.04346}
+  m_AnchoredPosition: {x: -0.010025, y: -352.93762}
+  m_SizeDelta: {x: 1920, y: 230.1151}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6022187371344349825
 CanvasRenderer:
@@ -327,7 +330,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Retreat
+  m_Text: HI-Score
 --- !u!114 &6022187371344349824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,62 +346,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3301887, g: 0.0015574975, b: 0.25390697, a: 0.5}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
---- !u!114 &3739528214830951893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6022187371344349884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 6022187371344349886}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8079392603681820815, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2,
-          type: 3}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ToWorldMap
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6022187371413610365
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +358,7 @@ GameObject:
   - component: {fileID: 6022187371413610366}
   - component: {fileID: 6022187371413610367}
   - component: {fileID: 117602828381012979}
+  - component: {fileID: 3217757837459191749}
   m_Layer: 31
   m_Name: SlainedWindow
   m_TagString: Untagged
@@ -428,6 +376,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6022187371195446351}
   - {fileID: 6022187371344349887}
@@ -437,7 +386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6022187371413610366
@@ -490,3 +439,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb4d5d2dfa4f3f4fbcb8f46ecc7907b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3217757837459191749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6022187371413610365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0d50d741998fb4b9eb892b99d4f48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
+  levelScoreText: {fileID: 6022187371344349886}

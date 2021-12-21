@@ -4,31 +4,23 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject slainedWindow;
     [SerializeField] private GameObject pauseWindowPrefab;
-    [HideInInspector] private SaveKeeper _saveKeeper;
     [HideInInspector] public int levelKills;
+    
+    private SaveKeeper _saveKeeper;
+    private bool _isGameOnPause;
 
-
-    public SaveKeeper SaveKeeper {
-        get {
-            if(_saveKeeper == null) {
-                _saveKeeper = new SaveKeeper();
-            }
-                return _saveKeeper; 
-         }
-    }
-    public static GameController Instance { get; private set; } = null;
-
-    private bool _isGameOnPause = false;
+    public SaveKeeper SaveKeeper => _saveKeeper ??= new SaveKeeper();
+    public static GameController Instance { get; private set; }
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -37,7 +29,7 @@ public class GameController : MonoBehaviour
         SaveKeeper.SaveDataBox();
     }
 
-    public bool GameStoped()
+    public bool GameStopped()
     {
         return _isGameOnPause;
     }
@@ -58,19 +50,7 @@ public class GameController : MonoBehaviour
     {
         LevelController.Instance.LoadLevel(0);
     }
-
-    public void OnPauseButtonCick()
-    {
-        if (_isGameOnPause)
-        {
-            ResumeGame();
-        }
-        else
-        {
-            PauseGame();
-        }
-    }
-
+    
     public void PauseGame()
     {
         _isGameOnPause = true;
@@ -85,7 +65,6 @@ public class GameController : MonoBehaviour
 
     public void ShowGameOverWindow()
     {
-        _isGameOnPause = true;
         if (levelKills > SaveKeeper.GetLevelKillsCount(LevelController.Instance.CurrentLevel))
         {
             SaveKeeper.SetLevelKillsCount(LevelController.Instance.CurrentLevel, levelKills);

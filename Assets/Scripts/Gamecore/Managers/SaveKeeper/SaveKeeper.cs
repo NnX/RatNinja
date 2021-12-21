@@ -15,13 +15,14 @@ public class SaveKeeper {
         LoadDataBox ();
     }
 
-    public int GetLevelKillsCount (int level) {
-        if(_saveDataBox.LevelKills.ContainsKey(level)) {
+    public int GetLevelKillsCount(int level)
+    {
+        if (_saveDataBox.LevelKills.ContainsKey(level))
+        {
             return _saveDataBox.LevelKills[level];
-        } else {
-            return 0;
         }
-        
+
+        return 0;
     }
     
     public void SetLevelKillsCount (int level, int kills) {

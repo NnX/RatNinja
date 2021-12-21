@@ -1,18 +1,21 @@
 ﻿using UnityEngine; 
 
 public class PlayerController : MonoBehaviour {
+    private const string AnimationJump = "JumpAnimation";
+    private const string AnimationSlide = "SlideAnimation";
+    private const string AnimationLand = "LandAnimation";
+
     [SerializeField] private Animator anim;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float jumpPower = 1;
 
     public Transform groundCheckPosition;
-    public LayerMask groundLayer;
 
-    private bool touchBegan;
-    private Rigidbody2D myBody;
-    private bool isGrounded;
-    private bool jumped;
-    private float defaultYposition;
+    private bool _touchBegan;
+    private Rigidbody2D _myBody;
+    private bool _isGrounded;
+    private bool _jumped;
+    private float _defaultYposition;
 
     private void Awake() {
         if(GameController.Instance != null)
@@ -20,79 +23,65 @@ public class PlayerController : MonoBehaviour {
             GameController.Instance.ResumeGame();
         }
         
-        myBody = GetComponent<Rigidbody2D>();
+        _myBody = GetComponent<Rigidbody2D>();
 
-        defaultYposition = groundCheckPosition.position.y;
-        Debug.Log($"[test] groundCheckPosition.positionY = {groundCheckPosition.position.y}, defaultYposition = {defaultYposition}");
+        _defaultYposition = groundCheckPosition.position.y;
     }
 
-    void Update () {
+    private void Update () {
 
-        if (GameController.Instance != null && GameController.Instance.GameStoped()) {
+        if (GameController.Instance != null && GameController.Instance.GameStopped()) {
             return;
         }
 
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             PlayerJump();
-            anim.Play("JumpAnimation");
+            anim.Play(AnimationJump);
         }
 
         if (Input.GetKeyDown (KeyCode.D)) {
-            anim.Play ("SlideAnimation");
+            anim.Play (AnimationSlide);
         }
 
         if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch (0);
-            if (touch.phase == TouchPhase.Began && !touchBegan) {
-                Debug.Log ("Touch Position : " + touch.position);
-
-                if (touch.position.x < (Screen.width / 2)) {
+            var touch = Input.GetTouch (0);
+            if (touch.phase == TouchPhase.Began && !_touchBegan) {
+                if (touch.position.x < Screen.width >> 1) {
                     PlayerJump();
-                    anim.Play("JumpAnimation");
+                    anim.Play(AnimationJump);
                 }
 
-                if (touch.position.x > (Screen.width / 2))
+                if (touch.position.x > Screen.width >> 1)
                 {
-                    anim.Play("SlideAnimation");
+                    anim.Play(AnimationSlide);
                 }
             }
         }
 
-        var currentJumpStatus = jumped;
+        var currentJumpStatus = _jumped;
         JumpCheck();
-        if(currentJumpStatus == true && jumped == false)
+        if(currentJumpStatus && _jumped == false)
         {
-            Debug.Log($"[test] LandAnimation");
-            anim.Play("LandAnimation");
+            anim.Play(AnimationLand);
         }
-    } // update 
+    } 
+    
     private void PlayerJump()
     {
-        Debug.Log($"[test] isGrounded= {isGrounded}, jumped = {jumped}");
-        if (!jumped)
-        {
-            Debug.Log($"[test] jumped = {jumped}");
-            myBody.AddForce(new Vector3(0, jumpPower), ForceMode2D.Impulse);
+        if (!_jumped)
+        { 
+            _myBody.AddForce(new Vector3(0, jumpPower), ForceMode2D.Impulse);
         }
     }
 
-    private void JumpCheck() {
-
-        if (groundCheckPosition.position.y <= defaultYposition)
+    private void JumpCheck()
+    {
+        _jumped = !(groundCheckPosition.position.y <= _defaultYposition);
+        if (groundCheckPosition.position.y <= _defaultYposition - 5 && !GameController.Instance.GameStopped())
         {
-            jumped = false;
-        }
-        else
-        {
-            jumped = true;
-        }
-
-        
-        Debug.Log($"[test] isGrounded= {isGrounded}, jumped = {jumped}");
-
-        if (groundCheckPosition.position.y <= defaultYposition - 5)
-        {
+            GameController.Instance.PauseGame();
             GameController.Instance.ShowGameOverWindow();
         }
     }

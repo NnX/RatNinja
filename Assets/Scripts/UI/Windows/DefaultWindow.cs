@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DefaultWindow : MonoBehaviour
 {
@@ -10,6 +8,6 @@ public class DefaultWindow : MonoBehaviour
     
     public void OnClose() {
         GameController.Instance.ResumeGame();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

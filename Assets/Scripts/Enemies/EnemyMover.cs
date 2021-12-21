@@ -2,38 +2,40 @@
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] private float speed_delta = 7f;
+    [SerializeField] private float speedDelta = 7f;
     [SerializeField] private Animator anim;
-    
-    private float move_Speed = 1f;
-    private RectTransform targetTransform;
+
     public int damage = 20;
+    
+    private float _moveSpeed = 1f;
+    private RectTransform _targetTransform;
+    private Vector2 _position;
+    private Vector2 _transformPosition;
 
     void Update()
     {
-        if(targetTransform != null) {
-            transform.position = Vector3.MoveTowards(
-                            transform.position,
-                            new Vector3(targetTransform.position.x, transform.position.y, 1f),
-                            move_Speed * Time.deltaTime);
+        if(_targetTransform != null)
+        {
+            var position = transform.position;
+            position = Vector3.MoveTowards(
+                            position,
+                            new Vector3(_targetTransform.position.x, position.y, 1f),
+                            _moveSpeed * Time.deltaTime);
+            transform.position = position;
         }
     }
 
-    public void SetTargetPosition(RectTransform targetTransform, float move_Speed, float speed_delta)
+    public void SetTargetPosition(RectTransform targetTransform, float moveSpeed, float deltaSpeed)
     {
-        this.move_Speed = Random.Range(move_Speed, move_Speed + speed_delta);
-        this.targetTransform = targetTransform;
+        _moveSpeed = Random.Range(moveSpeed, moveSpeed + deltaSpeed);
+        _targetTransform = targetTransform;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
         {
-            var palplayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            if(palplayerHealth != null)
-            {
-                palplayerHealth.ApplyDamage(damage);
-            }
+            playerHealth.ApplyDamage(damage);
             Destroy(gameObject);
         }
     }

@@ -1,52 +1,43 @@
 ﻿using DG.Tweening;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WeaponController : MonoBehaviour
 {
-
-    [SerializeField] Text points;
+    [SerializeField] private Text points;
     [SerializeField] private GameObject damagePoint;
-    [SerializeField] private GameObject ratDeadPrefab;
 
-
+    private Vector2 _flyDirection = new(25, 20);
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.tag == "Enemy")
+        if (collision.TryGetComponent<EnemyDeadController>(out var deadController))
         {
             int pts = int.Parse(points.text);
             pts++;
             GameController.Instance.levelKills = pts;
             points.text = pts.ToString();
-
-            EnemyDeadController deadController = collision.gameObject.GetComponent<EnemyDeadController>();
-
             var body = Instantiate(deadController.DeadbodyPrefab(), collision.gameObject.transform.localPosition, Quaternion.identity);
-
             Destroy(collision.gameObject);
             PlayDeathAnimation(body);
         }
     }
 
-    void AllowDamageCollision()
+    public void AllowDamageCollision()
     {
+        // do not delete, this method triggered from animation event
         damagePoint.SetActive(true);
     }
 
 
-    void DenyDamageCollision()
+    public  void DenyDamageCollision()
     {
+        // do not delete, this method triggered from animation event
         damagePoint.SetActive(false);
     }
 
-    public async void PlayDeathAnimation(GameObject body)
+    private void PlayDeathAnimation(GameObject body)
     {
-        Vector2 flyDirection = new Vector2(25, 20);
-        body.transform.DOMove(flyDirection, 2f);
-
-        await Task.Delay(2500);
-        Destroy(body);
+        body.transform.DOMove(_flyDirection, 2f);
+        Destroy(body, 3);
     }
 }

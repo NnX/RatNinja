@@ -1,32 +1,14 @@
 ﻿using UnityEngine.SceneManagement;
 public class LevelController : IGameController
 {
-    private int _currentLevel;
     private static LevelController _instance;
-    public int CurrentLevel
-    {
-        get
-        {
-            return _currentLevel;
-        }
-    }
-    public static LevelController Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new LevelController();
-            }
+    public int CurrentLevel { get; private set; } = 1;
 
-            return _instance;
-        }
-
-    }
+    public static LevelController Instance => _instance ?? new LevelController();
 
     public void LoadLevel(int level)
     {
-        _currentLevel = level;
+        CurrentLevel = level;
         if (level == 0)
         {
             SceneManager.LoadScene("WorldMap");
@@ -39,6 +21,6 @@ public class LevelController : IGameController
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level_" + _currentLevel);
+        SceneManager.LoadScene("Level_" + CurrentLevel);
     }
 }

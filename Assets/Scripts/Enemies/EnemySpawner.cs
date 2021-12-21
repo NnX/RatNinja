@@ -1,31 +1,30 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    private const float SpawnDelay = 1f;
+    private const float SpawnDelayDelta = 2f;
     [SerializeField] private float speedDelta = 7f;
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float spawnDelay = 1f;
-    [SerializeField] private float spawnDelayDelta = 2f;
     [SerializeField] private GameObject ememyPrefab;
     [SerializeField] private RectTransform targetTransform;
     [SerializeField] Transform spawnPoint;
-    
 
-    private GameObject enemy;
+    private GameObject _enemy;
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(SpawnEnemy());
     }
-
-    IEnumerator SpawnEnemy() {
+    // TODO implement enemy pool
+    // TODO spawn enemies from update method
+    private IEnumerator SpawnEnemy() {
 
         while (true) {
-            enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<EnemyMover>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
-            yield return new WaitForSeconds(Random.Range(spawnDelay, spawnDelayDelta));//TODO optimize, will create new object every enemy spawn
+            _enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
+            _enemy.GetComponent<EnemyMover>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
+            yield return new WaitForSeconds(Random.Range(SpawnDelay, SpawnDelayDelta));
         }
 
     }
