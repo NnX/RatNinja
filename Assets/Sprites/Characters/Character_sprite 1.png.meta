@@ -153,6 +153,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -161,9 +162,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -871,6 +872,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Character_sprite 1_36: 1778477568379675114
+      Character_sprite 1_119: -1262045530057939497
+      Character_sprite 1_114: 1234999259049477565
+      Character_sprite 1_34: -5780531882978971718
+      Character_sprite 1_21: 1600639738825921786
+      Character_sprite 1_19: 1055547650088373639
+      Character_sprite 1_26: -291773808536954110
+      Character_sprite 1_18: -7952779819942161533
+      Character_sprite 1_124: -7160167541674776452
+      Character_sprite 1_25: 2354160677546823428
+      Character_sprite 1_17: -7542318345447912419
+      Character_sprite 1_28: -323099498475870666
+      Character_sprite 1_31: -1245997418450308188
+      Character_sprite 1_120: 6481902907929087087
+      Character_sprite 1_118: 3340365993808066307
+      Character_sprite 1_45: -6568570306695155062
+      Character_sprite 1_32: 3573944312172031598
+      Character_sprite 1_111: 1673005762819479851
+      Character_sprite 1_121: 3262326653896744934
+      Character_sprite 1_123: -4731420066269062694
+      Character_sprite 1_20: -6915366852775526618
+      Character_sprite 1_122: 9094881330376342101
+      Character_sprite 1_115: 4987743951912778317
+      Character_sprite 1_23: 321455453104652042
+      Character_sprite 1_112: -2375570724178833033
+      Character_sprite 1_22: -4078903475713004425
+      Character_sprite 1_117: 2682405294678133279
+      Character_sprite 1_24: 9112129725873067785
+      Character_sprite 1_116: -6396564227808186838
+      Character_sprite 1_113: -2825635514206077252
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

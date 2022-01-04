@@ -2,9 +2,6 @@
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] private float speedDelta = 7f;
-    [SerializeField] private Animator anim;
-
     public int damage = 20;
     
     private float _moveSpeed = 1f;

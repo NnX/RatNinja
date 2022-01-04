@@ -90,6 +90,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -98,9 +99,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -121,6 +122,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -596,6 +599,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Character_sprite_3: 5881558465331017783
+      Character_sprite_21: 7718362272767080040
+      Character_sprite_19: -900528776412824830
+      Character_sprite_9: 7271920240903291256
+      Character_sprite_5: -4734427747600454564
+      Character_sprite_10: 3169300761517338502
+      Character_sprite_11: 7304874221542784430
+      Character_sprite_20: 6282570417018830707
+      Character_sprite_12: -2406292442678507948
+      Character_sprite_14: 4673039064522403620
+      Character_sprite_2: -6462235250242437728
+      Character_sprite_6: -4719077470477617855
+      Character_sprite_4: 2031430402647311792
+      Character_sprite_1: -3914056978171311531
+      Character_sprite_7: -6045686286007785849
+      Character_sprite_17: -3553222139165452395
+      Character_sprite_16: -5901814239557001336
+      Character_sprite_8: 3891928715120561239
+      Character_sprite_0: -6346258977927561028
+      Character_sprite_18: 1502817181008600416
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

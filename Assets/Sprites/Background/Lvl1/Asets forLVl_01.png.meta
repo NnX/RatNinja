@@ -66,6 +66,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -74,9 +75,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -448,6 +449,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Asets forLVl_01_7: 2650407521460428578
+      Asets forLVl_01_12: -4069705279001036801
+      Asets forLVl_01_5: 1730436177304511141
+      Asets forLVl_01_2: 7138929305870717334
+      Asets forLVl_01_13: -2791412732879328366
+      Asets forLVl_01_8: -4185395396939428953
+      Asets forLVl_01_6: -293796064042758371
+      Asets forLVl_01_11: -3563654725530383191
+      Asets forLVl_01_10: -571563722586333098
+      Asets forLVl_01_0: -4749707715097208764
+      Asets forLVl_01_3: -2017831194795845351
+      Asets forLVl_01_1: -1772595615380400598
+      Asets forLVl_01_4: 4038195427231548790
+      Asets forLVl_01_9: -5408481263005859826
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

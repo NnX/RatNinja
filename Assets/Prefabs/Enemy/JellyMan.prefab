@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7703097069156672277}
+  - component: {fileID: 6477746027185878439}
   - component: {fileID: 7703097069156672276}
   - component: {fileID: 5470516146790082698}
   - component: {fileID: 663299605700712701}
   - component: {fileID: 4401134282022341779}
+  - component: {fileID: 5997890090654036263}
   m_Layer: 0
   m_Name: JellyMan
   m_TagString: Untagged
@@ -20,20 +21,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7703097069156672277
-Transform:
+--- !u!224 &6477746027185878439
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7703097069156672274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.38, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1.8301195, y: 0.45000005}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &7703097069156672276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -111,7 +118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.05, y: 0.66}
+  m_Size: {x: 1.8, y: 0.44}
   m_EdgeRadius: 0
 --- !u!50 &663299605700712701
 Rigidbody2D:
@@ -148,3 +155,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadBody: {fileID: 7067245457380189437, guid: 543bed0ae468fc34186f723419905db7,
     type: 3}
+--- !u!95 &5997890090654036263
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703097069156672274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7529b547b3fa5d4882414efd054cef9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
