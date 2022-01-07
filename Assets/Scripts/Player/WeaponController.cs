@@ -6,12 +6,14 @@ public class WeaponController : MonoBehaviour
 {
     [SerializeField] private Text points;
     [SerializeField] private GameObject damagePoint;
-
+    [SerializeField] private AudioSource[] hitSounds;
+    
     private Vector2 _flyDirection = new(25, 20);
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<EnemyDeadController>(out var deadController))
         {
+            hitSounds[Random.Range(0, hitSounds.Length)].Play();
             int pts = int.Parse(points.text);
             pts++;
             GameController.Instance.levelKills = pts;

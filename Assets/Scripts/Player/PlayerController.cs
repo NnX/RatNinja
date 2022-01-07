@@ -6,9 +6,11 @@ public class PlayerController : MonoBehaviour {
     private const string AnimationLand = "LandAnimation";
 
     [SerializeField] private Animator anim;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource jumpStart;
+    [SerializeField] private AudioSource jumpLand;
     [SerializeField] private float jumpPower = 1;
-
+    [SerializeField] private AudioSource[] slideSounds;
+    
     public Transform groundCheckPosition;
 
     private bool _touchBegan;
@@ -41,8 +43,10 @@ public class PlayerController : MonoBehaviour {
             anim.Play(AnimationJump);
         }
 
-        if (Input.GetKeyDown (KeyCode.D)) {
-            anim.Play (AnimationSlide);
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            slideSounds[Random.Range(0, slideSounds.Length)].Play();
+            anim.Play(AnimationSlide);
         }
 
         if (Input.touchCount > 0) {
@@ -64,6 +68,7 @@ public class PlayerController : MonoBehaviour {
         JumpCheck();
         if(currentJumpStatus && _jumped == false)
         {
+            jumpLand.Play();
             anim.Play(AnimationLand);
         }
     } 
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!_jumped)
         { 
+            jumpStart.Play();
             _myBody.AddForce(new Vector3(0, jumpPower), ForceMode2D.Impulse);
         }
     }
