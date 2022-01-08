@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 663299605700712701}
   - component: {fileID: 4401134282022341779}
   - component: {fileID: 5997890090654036263}
+  - component: {fileID: 2790197784637755117}
   m_Layer: 0
   m_Name: JellyMan
   m_TagString: Untagged
@@ -153,8 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6c0d84fe3b97641a6edb5d4296b3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadBody: {fileID: 7067245457380189437, guid: 543bed0ae468fc34186f723419905db7,
-    type: 3}
+  deadBody: {fileID: 7703097069156672274}
 --- !u!95 &5997890090654036263
 Animator:
   serializedVersion: 4
@@ -175,3 +175,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2790197784637755117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703097069156672274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1fa5d29a68071478e79d5457c677d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
