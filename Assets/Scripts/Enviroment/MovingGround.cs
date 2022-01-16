@@ -1,66 +1,98 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class MovingGround : MonoBehaviour
 {
-    private const float TimeToUpdate = 5f;
-    private const float GapSize = 5f;
-    [SerializeField] private RectTransform spawnPoint;
+    private const float MaxBackPositionMultiplier = 1.5f;
+    private const float GapSize = 0f;
     [SerializeField] private float movingSpeed;
-    [SerializeField] private RectTransform[] platforms;
+    [SerializeField] private float firstPlatformXPos = -30.01f;
     [SerializeField] private GameObject[] platformPrefabs;
 
-    private float _timer;
-    
+    private List<RectTransform> _platforms;
+
+    private float _backPlatformPositionX;
+
     // Update is called once per frame
-    private void Start()
+    private void Awake()
     {
         //Init platformsPool
-        
+        _platforms = new List<RectTransform>(platformPrefabs.Length);
+        for (int i = 0; i < platformPrefabs.Length; i++)
+        {
+            var platform = Instantiate(platformPrefabs[i], transform, false);
+            if (i != 0)
+            {
+                var newLastPlatformPosition = _platforms[i - 1].localPosition;
+                newLastPlatformPosition.x += _platforms[i - 1].rect.width + GapSize;
+                platform.transform.localPosition = newLastPlatformPosition;
+            }
+            else
+            {
+                var firstPlatformPosition = platform.transform.localPosition;
+                firstPlatformPosition.x = firstPlatformXPos;
+                platform.transform.localPosition = firstPlatformPosition;
+            }
+
+            _platforms.Add((RectTransform)platform.transform);
+        }
     }
 
     private void Update()
-    { 
+    {
         MoveGround();
+        if (_backPlatformPositionX < firstPlatformXPos * MaxBackPositionMultiplier)
+        {
+            MoveLastPlatformAhead();
+            _backPlatformPositionX = int.MaxValue;
+        }
     }
 
-    private void MoveGround()
+    public void MoveGround()
     {
-        foreach(var platform in platforms)
+        
+        foreach (var platform in _platforms)
         {
-            var ground1Position = new Vector3(platform.position.x, platform.position.y, platform.position.z);
+            var position = platform.position;
+            var ground1Position = new Vector3(position.x, position.y, position.z);
             ground1Position.x -= movingSpeed * Time.deltaTime;
-            platform.position = ground1Position;
-        }
-
-        if (_timer > TimeToUpdate)
-        {
-            _timer = 0;
-            var lowestPosition = float.MaxValue;
-            var highestPosition = float.MinValue;
-            var lowestPlatformIndex = 0;
-            var highestPlatformIndex = 0;
-            var index = 0;
-            foreach (var rectTransform in platforms)
+            position = ground1Position;
+            platform.position = position;
+            
+            if (position.x < _backPlatformPositionX)
             {
-                if (rectTransform.localPosition.x < lowestPosition)
-                {
-                    lowestPosition = rectTransform.localPosition.x;
-                    lowestPlatformIndex = index;
-                }
-                if (rectTransform.localPosition.x > highestPosition)
-                {
-                    highestPosition = rectTransform.localPosition.x;
-                    highestPlatformIndex = index;
-                }
-                index++;
+                _backPlatformPositionX = position.x;
+            }
+        }
+    }
+
+    private void MoveLastPlatformAhead()
+    {
+        var lowestPosition = float.MaxValue;
+        var highestPosition = float.MinValue;
+        var lowestPlatformIndex = 0;
+        var highestPlatformIndex = 0;
+        var index = 0;
+        foreach (var rectTransform in _platforms)
+        {
+            if (rectTransform.localPosition.x < lowestPosition)
+            {
+                lowestPosition = rectTransform.localPosition.x;
+                lowestPlatformIndex = index;
             }
 
-            var newLastPlatformPosition = platforms[highestPlatformIndex].localPosition;
-            newLastPlatformPosition.x += platforms[highestPlatformIndex].rect.width + GapSize;
-            platforms[lowestPlatformIndex].localPosition = newLastPlatformPosition;
+            if (rectTransform.localPosition.x > highestPosition)
+            {
+                highestPosition = rectTransform.localPosition.x;
+                highestPlatformIndex = index;
+            }
+
+            index++;
         }
 
-        _timer += Time.deltaTime;
+        var newLastPlatformPosition = _platforms[highestPlatformIndex].localPosition;
+        newLastPlatformPosition.x += _platforms[highestPlatformIndex].rect.width + GapSize;
+        _platforms[lowestPlatformIndex].localPosition = newLastPlatformPosition;
     }
 
     private void CheckPosition(Transform prefabPosition)
