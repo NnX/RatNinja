@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
     private const string AnimationLand = "LandAnimation";
 
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject jumpFxPrefab;
+    [SerializeField] private Transform jumpFxParent;
     [SerializeField] private AudioSource jumpStart;
     [SerializeField] private AudioSource jumpLand;
     [SerializeField] private float jumpPower = 1;
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour {
     private bool _isGrounded;
     private bool _jumped;
     private float _defaultYposition;
+    private GameObject _jumpFx;
 
     private void Awake() {
         if(GameController.Instance != null)
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour {
                 if (touch.position.x < Screen.width >> 1) {
                     PlayerJump();
                     anim.Play(AnimationJump);
+                    PLayJumpFxAnimation();
                 }
 
                 if (touch.position.x > Screen.width >> 1)
@@ -71,8 +75,23 @@ public class PlayerController : MonoBehaviour {
             jumpLand.Play();
             anim.Play(AnimationLand);
         }
-    } 
-    
+    }
+
+    private void PLayJumpFxAnimation()
+    {
+        if (_jumpFx == null)
+        {
+            var jumpFx = Instantiate(jumpFxPrefab, jumpFxParent);
+            _jumpFx = jumpFx;
+            _jumpFx.transform.SetParent(gameObject.transform.parent);
+        }
+        else
+        {
+            _jumpFx.transform.position = jumpFxParent.transform.position;
+            _jumpFx.SetActive(true);
+        }
+    }
+
     private void PlayerJump()
     {
         if (!_jumped)

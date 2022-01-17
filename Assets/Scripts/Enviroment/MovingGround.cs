@@ -10,6 +10,7 @@ public class MovingGround : MonoBehaviour
     [SerializeField] private GameObject[] platformPrefabs;
 
     private List<RectTransform> _platforms;
+    private List<RectTransform> _otherObjects;
 
     private float _backPlatformPositionX;
 

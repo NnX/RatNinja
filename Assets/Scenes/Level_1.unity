@@ -942,6 +942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 885404114}
+  jumpFxPrefab: {fileID: 0}
+  jumpFxParent: {fileID: 0}
   jumpStart: {fileID: 0}
   jumpLand: {fileID: 0}
   jumpPower: 5

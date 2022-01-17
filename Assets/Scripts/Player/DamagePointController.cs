@@ -7,4 +7,9 @@ public class DamagePointController : MonoBehaviour
     private void OnEnable() {
         anim.Play("PixelPunchSmokeRight");
     }
+
+    private void OnDisable()
+    {
+        anim.Rebind();
+    }
 }
