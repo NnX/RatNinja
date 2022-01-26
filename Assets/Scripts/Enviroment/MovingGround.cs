@@ -10,7 +10,6 @@ public class MovingGround : MonoBehaviour
     [SerializeField] private GameObject[] platformPrefabs;
 
     private List<RectTransform> _platforms;
-    private List<RectTransform> _otherObjects;
 
     private float _backPlatformPositionX;
 
@@ -94,6 +93,11 @@ public class MovingGround : MonoBehaviour
         var newLastPlatformPosition = _platforms[highestPlatformIndex].localPosition;
         newLastPlatformPosition.x += _platforms[highestPlatformIndex].rect.width + GapSize;
         _platforms[lowestPlatformIndex].localPosition = newLastPlatformPosition;
+
+        if (_platforms[highestPlatformIndex].TryGetComponent<Platform>(out var platform))
+        {
+            platform.ResetState();
+        }
     }
 
     private void CheckPosition(Transform prefabPosition)

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,20 +13,31 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform spawnPoint;
 
     private GameObject _enemy;
+    private Queue<GameObject> _enemyPool;
 
     private void Start()
     {
+        _enemyPool = new Queue<GameObject>();
         StartCoroutine(SpawnEnemy());
     }
-    // TODO implement enemy pool
-    // TODO spawn enemies from update method
+    
     private IEnumerator SpawnEnemy() {
 
         while (true) {
-            _enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
-            _enemy.GetComponent<EnemyMover>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
+            if (_enemyPool.Count == 0 || _enemyPool.Peek().activeInHierarchy)
+            {
+                var enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
+                enemy.GetComponent<Rat>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
+                _enemyPool.Enqueue(enemy);
+            }
+            else
+            {
+                _enemy = _enemyPool.Dequeue();
+                _enemy.GetComponent<Rat>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
+                _enemyPool.Enqueue(_enemy);
+            }
+            
             yield return new WaitForSeconds(Random.Range(SpawnDelay, SpawnDelayDelta));
         }
-
     }
 }

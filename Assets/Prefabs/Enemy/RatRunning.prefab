@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6462058802161835604}
   - component: {fileID: 860252284211149903}
   - component: {fileID: -2915010791753211162}
-  - component: {fileID: 9190719934682347117}
   - component: {fileID: 5886022034050566134}
   m_Layer: 8
   m_Name: RatRunning
@@ -149,27 +148,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.17, y: 0.63}
   m_EdgeRadius: 0
---- !u!50 &9190719934682347117
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9086023928404031421}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!114 &5886022034050566134
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -190,6 +190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 8079392603681820814, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2, type: 3}
 --- !u!1 &91363526
@@ -2092,6 +2097,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NinjaChar
       objectReference: {fileID: 0}
+    - target: {fileID: 179558111201796860, guid: effeb39df119ee647ac2160f895a996e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 179558112423464888, guid: effeb39df119ee647ac2160f895a996e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2111,7 +2121,7 @@ PrefabInstance:
     - target: {fileID: 179558112423464890, guid: effeb39df119ee647ac2160f895a996e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 179558112423464891, guid: effeb39df119ee647ac2160f895a996e,
         type: 3}

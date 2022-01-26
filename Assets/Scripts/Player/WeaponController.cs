@@ -8,7 +8,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private GameObject damagePoint;
     [SerializeField] private AudioSource[] hitSounds;
     
-    private Vector2 _flyDirection = new(25, 20);
+    private Vector3 _flyDirection = new(25, 20, 20);
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<EnemyDeadController>(out var deadController))
@@ -18,8 +18,18 @@ public class WeaponController : MonoBehaviour
             pts++;
             GameController.Instance.levelKills = pts;
             points.text = pts.ToString();
-            var body = Instantiate(deadController.DeadbodyPrefab(), collision.gameObject.transform.localPosition, Quaternion.identity);
-            Destroy(collision.gameObject);
+            var localPosition = collision.gameObject.transform.position;
+            var body = Instantiate(deadController.DeadbodyPrefab(), localPosition, Quaternion.identity);
+
+            if (collision.TryGetComponent<IResetable>(out var  resetable))
+            {
+                resetable.Disable();
+                PlayDeathAnimation(body);
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
             PlayDeathAnimation(body);
         }
     }
