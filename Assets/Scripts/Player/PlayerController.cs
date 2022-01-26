@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject jumpFxPrefab;
+    [SerializeField] private GameObject slideFxPrefab;
     [SerializeField] private Transform jumpFxParent;
     [SerializeField] private AudioSource jumpStart;
     [SerializeField] private AudioSource jumpLand;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     private bool _jumped;
     private float _defaultYposition;
     private GameObject _jumpFx;
+    private GameObject _slideFx;
 
     private void Awake() {
         if(GameController.Instance != null)
@@ -40,21 +42,23 @@ public class PlayerController : MonoBehaviour {
         }
 
         
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && !_jumped)
         {
             PlayerJump();
             anim.Play(AnimationJump);
+            PLayJumpFxAnimation();
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             slideSounds[Random.Range(0, slideSounds.Length)].Play();
             anim.Play(AnimationSlide);
+            PLaySlideFxAnimation();
         }
 
         if (Input.touchCount > 0) {
             var touch = Input.GetTouch (0);
-            if (touch.phase == TouchPhase.Began && !_touchBegan) {
+            if (!_jumped && touch.phase == TouchPhase.Began && !_touchBegan) {
                 if (touch.position.x < Screen.width >> 1) {
                     PlayerJump();
                     anim.Play(AnimationJump);
@@ -64,6 +68,7 @@ public class PlayerController : MonoBehaviour {
                 if (touch.position.x > Screen.width >> 1)
                 {
                     anim.Play(AnimationSlide);
+                    PLaySlideFxAnimation();
                 }
             }
         }
@@ -89,6 +94,20 @@ public class PlayerController : MonoBehaviour {
         {
             _jumpFx.transform.position = jumpFxParent.transform.position;
             _jumpFx.SetActive(true);
+        }
+    }
+    private void PLaySlideFxAnimation()
+    {
+        if (_slideFx == null)
+        {
+            var jumpFx = Instantiate(slideFxPrefab, jumpFxParent);
+            _slideFx = jumpFx;
+            //_slideFx.transform.SetParent(gameObject.transform.parent);
+        }
+        else
+        {
+            //_slideFx.transform.position = slideFxPrefab.transform.position;
+            _slideFx.SetActive(true);
         }
     }
 

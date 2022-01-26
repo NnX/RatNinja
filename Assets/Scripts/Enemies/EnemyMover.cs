@@ -8,15 +8,20 @@ public class EnemyMover : MonoBehaviour
     private RectTransform _targetTransform;
     private Vector2 _position;
     private Vector2 _transformPosition;
+    private Vector3 _target;
 
     void Update()
     {
         if(_targetTransform != null)
         {
             var position = transform.position;
+            _target.x = _targetTransform.position.x;
+            _target.y = position.y;
+            _target.z = 1f;
+            
             position = Vector3.MoveTowards(
                             position,
-                            new Vector3(_targetTransform.position.x, position.y, 1f),
+                            _target,
                             _moveSpeed * Time.deltaTime);
             transform.position = position;
         }

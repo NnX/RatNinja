@@ -29,9 +29,7 @@ public class WeaponController : MonoBehaviour
         // do not delete, this method triggered from animation event
         damagePoint.SetActive(true);
     }
-
-
-    public  void DenyDamageCollision()
+    public void DenyDamageCollision()
     {
         // do not delete, this method triggered from animation event
         damagePoint.SetActive(false);
