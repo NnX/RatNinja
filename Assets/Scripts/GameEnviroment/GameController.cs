@@ -4,6 +4,8 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject slainedWindow;
     [SerializeField] private GameObject pauseWindowPrefab;
+    [SerializeField] private MovingGround movingGround;
+    [SerializeField] private EnemySpawner enemySpawner;
     [HideInInspector] public int levelKills;
     
     private SaveKeeper _saveKeeper;
@@ -82,5 +84,15 @@ public class GameController : MonoBehaviour
         var pauseWindow = Instantiate(pauseWindowPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         var canvas = FindObjectOfType<Canvas>();
         pauseWindow.transform.SetParent(canvas.transform, false);
+    }
+    public void SetSpeed()
+    {
+        enemySpawner.IncreaseSpeed();
+        movingGround.SetMoveSpeed();
+    }
+    public void ResetSpeed()
+    {
+        enemySpawner.ResetSpeed();
+        movingGround.ResetSpeed();
     }
 }

@@ -11,9 +11,11 @@ public class MovingGround : MonoBehaviour
 
     private List<RectTransform> _platforms;
     private float _backPlatformPositionX;
+    private float _defaultSpeed;
 
     private void Awake()
     {
+        _defaultSpeed = movingSpeed; 
         //Init platformsPool
         _platforms = new List<RectTransform>(platformPrefabs.Length);
         for (int i = 0; i < platformPrefabs.Length; i++)
@@ -36,6 +38,15 @@ public class MovingGround : MonoBehaviour
         }
     }
 
+    public void SetMoveSpeed()
+    {
+        movingSpeed = _defaultSpeed * 3;
+    }
+    public void ResetSpeed()
+    {
+        movingSpeed = _defaultSpeed;
+    }
+
     private void Update()
     {
         MoveGround();
@@ -46,7 +57,7 @@ public class MovingGround : MonoBehaviour
         }
     }
 
-    public void MoveGround()
+    private void MoveGround()
     {
         
         foreach (var platform in _platforms)

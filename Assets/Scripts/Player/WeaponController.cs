@@ -37,11 +37,13 @@ public class WeaponController : MonoBehaviour
     public void AllowDamageCollision()
     {
         // do not delete, this method triggered from animation event
+        GameController.Instance.SetSpeed();
         damagePoint.SetActive(true);
     }
     public void DenyDamageCollision()
     {
         // do not delete, this method triggered from animation event
+        GameController.Instance.ResetSpeed();
         damagePoint.SetActive(false);
     }
 

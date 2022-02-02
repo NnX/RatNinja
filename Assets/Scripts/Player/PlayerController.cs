@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
     private const string AnimationSlide = "SlideAnimation";
     private const string AnimationLand = "LandAnimation";
 
+    [SerializeField] private WeaponController weaponController;
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject jumpFxPrefab;
     [SerializeField] private GameObject slideFxPrefab;
@@ -44,31 +45,24 @@ public class PlayerController : MonoBehaviour {
         
         if (Input.GetKeyDown(KeyCode.A) && !_jumped)
         {
-            PlayerJump();
-            anim.Play(AnimationJump);
-            PLayJumpFxAnimation();
+            OnPlayerJump();
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            slideSounds[Random.Range(0, slideSounds.Length)].Play();
-            anim.Play(AnimationSlide);
-            PLaySlideFxAnimation();
+            OnPlayerSlide();
         }
 
         if (Input.touchCount > 0) {
             var touch = Input.GetTouch (0);
             if (!_jumped && touch.phase == TouchPhase.Began && !_touchBegan) {
                 if (touch.position.x < Screen.width >> 1) {
-                    PlayerJump();
-                    anim.Play(AnimationJump);
-                    PLayJumpFxAnimation();
+                    OnPlayerJump();
                 }
 
                 if (touch.position.x > Screen.width >> 1)
                 {
-                    anim.Play(AnimationSlide);
-                    PLaySlideFxAnimation();
+                    OnPlayerSlide();
                 }
             }
         }
@@ -77,9 +71,25 @@ public class PlayerController : MonoBehaviour {
         JumpCheck();
         if(currentJumpStatus && _jumped == false)
         {
+            weaponController.DenyDamageCollision();
             jumpLand.Play();
             anim.Play(AnimationLand);
         }
+    }
+
+    private void OnPlayerSlide()
+    {
+        slideSounds[Random.Range(0, slideSounds.Length)].Play();
+        anim.Play(AnimationSlide);
+        PLaySlideFxAnimation();
+    }
+
+    private void OnPlayerJump()
+    {
+        weaponController.DenyDamageCollision();
+        PlayerJump();
+        anim.Play(AnimationJump);
+        PLayJumpFxAnimation();
     }
 
     private void PLayJumpFxAnimation()
@@ -102,11 +112,9 @@ public class PlayerController : MonoBehaviour {
         {
             var jumpFx = Instantiate(slideFxPrefab, jumpFxParent);
             _slideFx = jumpFx;
-            //_slideFx.transform.SetParent(gameObject.transform.parent);
         }
         else
         {
-            //_slideFx.transform.position = slideFxPrefab.transform.position;
             _slideFx.SetActive(true);
         }
     }

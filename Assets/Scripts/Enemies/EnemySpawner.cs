@@ -20,7 +20,26 @@ public class EnemySpawner : MonoBehaviour
         _enemyPool = new Queue<GameObject>();
         StartCoroutine(SpawnEnemy());
     }
-    
+    public void IncreaseSpeed()
+    {
+        foreach (var enemy in _enemyPool)
+        {
+            if (enemy.TryGetComponent<Rat>(out var rat))
+            {
+                rat.IncreaseSpeed();
+            }
+        }
+    }
+    public void ResetSpeed()
+    {
+        foreach (var enemy in _enemyPool)
+        {
+            if (enemy.TryGetComponent<Rat>(out var rat))
+            {
+                rat.ResetSpeed();
+            }
+        }
+    }
     private IEnumerator SpawnEnemy() {
 
         while (true) {

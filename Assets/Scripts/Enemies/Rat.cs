@@ -9,6 +9,7 @@ public class Rat : SomethingHarmful, IResetable
     private Vector2 _transformPosition;
     private Vector3 _target;
     private Vector3 _startPosition;
+    private float _defaultSpeed;
 
     private void Awake()
     {
@@ -38,7 +39,8 @@ public class Rat : SomethingHarmful, IResetable
     public void SetTargetPosition(RectTransform targetTransform, float moveSpeed, float deltaSpeed)
     {
         Reset();
-        _moveSpeed = Random.Range(moveSpeed, moveSpeed + deltaSpeed);
+        _defaultSpeed = Random.Range(moveSpeed, moveSpeed + deltaSpeed);
+        _moveSpeed = _defaultSpeed;
         _targetTransform = targetTransform;
     }
 
@@ -61,4 +63,15 @@ public class Rat : SomethingHarmful, IResetable
     {
         gameObject.SetActive(false);
     }
+
+    public void IncreaseSpeed()
+    {
+        _moveSpeed = _defaultSpeed * 2;
+    }
+
+    public void ResetSpeed()
+    {
+        _moveSpeed = _defaultSpeed;
+    }
+    
 }
