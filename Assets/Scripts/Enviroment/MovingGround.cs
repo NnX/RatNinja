@@ -10,10 +10,8 @@ public class MovingGround : MonoBehaviour
     [SerializeField] private GameObject[] platformPrefabs;
 
     private List<RectTransform> _platforms;
-
     private float _backPlatformPositionX;
 
-    // Update is called once per frame
     private void Awake()
     {
         //Init platformsPool
@@ -98,15 +96,5 @@ public class MovingGround : MonoBehaviour
         {
             platform.ResetState();
         }
-    }
-
-    private void CheckPosition(Transform prefabPosition)
-    {
-/*        if (prefabPosition.position.x < -22)
-        {
-            var position = new Vector3(prefabPosition.position.x, prefabPosition.position.y, prefabPosition.position.z);
-            position.x = 22;
-            prefabPosition.position = position;
-        }*/
     }
 }
