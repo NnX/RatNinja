@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundWidth: 19.19
-  movingSpeed: 5
+  movingSpeed: 3
   backgrounds:
   - {fileID: 1167839487}
   - {fileID: 1652992491}
