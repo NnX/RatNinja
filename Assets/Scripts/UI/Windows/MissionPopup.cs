@@ -1,14 +1,17 @@
-﻿using UnityEngine;
+﻿using GameEnvironment;
+using UnityEngine;
 using UnityEngine.UI;
 
-
-public class MissionPopup : MonoBehaviour
+namespace UI.Windows
 {
-    [SerializeField] private int currentLevel;
-    [SerializeField] private Text levelScoreText;
-
-    private void Start()
+    public class MissionPopup : MonoBehaviour
     {
-        levelScoreText.text = "Hi-Score " + GameController.Instance.SaveKeeper.GetLevelKillsCount(currentLevel).ToString();
+        [SerializeField] private int currentLevel;
+        [SerializeField] private Text levelScoreText;
+
+        private void Start()
+        {
+            levelScoreText.text = "Hi-Score " + GameController.Instance.SaveKeeper.GetLevelKillsCount(currentLevel).ToString();
+        }
     }
 }

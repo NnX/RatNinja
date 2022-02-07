@@ -1,13 +1,16 @@
 ﻿
 using UnityEngine;
 
-public class EnemyDeadController : MonoBehaviour
+namespace Enemies
 {
-    [SerializeField] private GameObject deadBody;
-    
-    public GameObject DeadbodyPrefab()
+    public class EnemyDeadController : MonoBehaviour
     {
-        return deadBody;
-    }
+        [SerializeField] private GameObject deadBody;
+    
+        public GameObject DeadbodyPrefab()
+        {
+            return deadBody;
+        }
 
+    }
 }

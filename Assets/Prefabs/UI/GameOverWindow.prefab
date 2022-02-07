@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 117602828381012979}
   - component: {fileID: 3217757837459191749}
   m_Layer: 31
-  m_Name: SlainedWindow
+  m_Name: GameOverWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

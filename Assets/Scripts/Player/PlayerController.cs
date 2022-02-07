@@ -1,4 +1,5 @@
-﻿using UnityEngine; 
+﻿using GameEnvironment;
+using UnityEngine; 
 
 public class PlayerController : MonoBehaviour {
     private const string AnimationJump = "JumpAnimation";

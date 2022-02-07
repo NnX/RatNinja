@@ -1,10 +1,14 @@
 using UnityEngine;
-public abstract class SomethingHarmful : MonoBehaviour
+
+namespace Enemies
 {
-    public int damage = 10;
-    protected void DealDamage(PlayerHealth playerHealth)
+    public abstract class SomethingHarmful : MonoBehaviour
     {
-        playerHealth.ApplyDamage(damage);
-    }
+        public int damage = 10;
+        protected void DealDamage(PlayerHealth playerHealth)
+        {
+            playerHealth.ApplyDamage(damage);
+        }
     
+    }
 }

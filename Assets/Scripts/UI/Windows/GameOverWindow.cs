@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using GameEnvironment;
+using UnityEngine;
 
-public class GameOverWindow : MonoBehaviour
+namespace UI.Windows
 {
-    
-    void Start()
+    public class GameOverWindow : MonoBehaviour
     {
-        GameController.Instance.PauseGame();
-    }
+    
+        void Start()
+        {
+            GameController.Instance.PauseGame();
+        }
 
-    void OnDestroy() {
-        GameController.Instance.ResumeGame();
+        void OnDestroy() {
+            GameController.Instance.ResumeGame();
+        }
     }
 }

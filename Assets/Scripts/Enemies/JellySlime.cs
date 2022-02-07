@@ -1,41 +1,46 @@
+using GameEnvironment.Controllers;
 using UnityEngine;
-public class JellySlime : SomethingHarmful, IResetable
+
+namespace Enemies
 {
-    private const string JumpAnimationState = "JellyJump";
-    private Animator _animator;
-    private Vector3 _startPosition;
-    private void Awake()
+    public class JellySlime : SomethingHarmful, IResetable
     {
-        if (TryGetComponent<Animator>(out var animator))
+        private const string JumpAnimationState = "JellyJump";
+        private Animator _animator;
+        private Vector3 _startPosition;
+        private void Awake()
         {
-            _animator = animator;
+            if (TryGetComponent<Animator>(out var animator))
+            {
+                _animator = animator;
+            }
+            _startPosition = transform.localPosition;
         }
-        _startPosition = transform.localPosition;
-    }
 
-    private void OnEnable()
-    { 
-        _animator.Play(JumpAnimationState);
-    }
+        private void OnEnable()
+        { 
+            _animator.Play(JumpAnimationState);
+        }
 
-    public void Reset()
-    {
-        gameObject.SetActive(true);
-        transform.localPosition = _startPosition;
-        _animator.Play(JumpAnimationState);
-    }
-
-    public void Disable()
-    {
-        gameObject.SetActive(false);
-    }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
+        public void Reset()
         {
-            DealDamage(playerHealth);
-            Disable();
+            gameObject.SetActive(true);
+            transform.localPosition = _startPosition;
+            _animator.Play(JumpAnimationState);
+        }
+
+        public void Disable()
+        {
+            gameObject.SetActive(false);
+        }
+    
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
+            {
+                DealDamage(playerHealth);
+                Disable();
+            }
         }
     }
 }
