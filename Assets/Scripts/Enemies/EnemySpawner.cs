@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -11,8 +12,6 @@ namespace Enemies
         [SerializeField] private float speedDelta = 7f;
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private GameObject ememyPrefab;
-        [SerializeField] private RectTransform targetTransform;
-        [SerializeField] Transform spawnPoint;
 
         private GameObject _enemy;
         private Queue<GameObject> _enemyPool;
@@ -47,14 +46,19 @@ namespace Enemies
             while (true) {
                 if (_enemyPool.Count == 0 || _enemyPool.Peek().activeInHierarchy)
                 {
-                    var enemy = Instantiate(ememyPrefab, spawnPoint.position, Quaternion.identity);
-                    enemy.GetComponent<Rat>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
+                    var parent = transform.parent;
+                    var enemy = Instantiate(ememyPrefab, parent.position, Quaternion.identity);
+                    enemy.transform.SetParent(parent);
+                    var initPosition = enemy.transform.position;
+                    var position = new Vector3(initPosition.x, initPosition.y, 12);
+                    enemy.transform.position = position;
+                    enemy.GetComponent<Rat>().SetTargetPosition(moveSpeed, speedDelta);
                     _enemyPool.Enqueue(enemy);
                 }
                 else
                 {
                     _enemy = _enemyPool.Dequeue();
-                    _enemy.GetComponent<Rat>().SetTargetPosition(targetTransform, moveSpeed, speedDelta);
+                    _enemy.GetComponent<Rat>().SetTargetPosition( moveSpeed, speedDelta);
                     _enemyPool.Enqueue(_enemy);
                 }
             

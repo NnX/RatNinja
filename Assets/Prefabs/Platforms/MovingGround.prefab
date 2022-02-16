@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7211566359224740321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7211566359224740324}
+  - component: {fileID: 7211566359224740323}
+  m_Layer: 11
+  m_Name: MovingGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7211566359224740324
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211566359224740321}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 67.6718, y: 12.8212}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7211566359224740323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211566359224740321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f38d62b90b5e442bfc0383fbb89e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingSpeed: 5
+  firstPlatformXPos: -30.01
+  platformPrefabs:
+  - {fileID: 7953324608618053586, guid: dd77c5c109030014abeca099e6a9e8a0, type: 3}
+  - {fileID: 7638028505285540279, guid: 68000879fb489474998ba0ed15e2cbcd, type: 3}
+  - {fileID: 5498868074591856323, guid: 2e63c5b1d08560d469f5d9b6355af21e, type: 3}
+  - {fileID: 3136826804722115236, guid: e3c10939fa5f7bc4cac9c73f29e87847, type: 3}
+  - {fileID: 7905729878217123861, guid: 7dd3e04b7c0965f4eaa47933cff49cfb, type: 3}
+  - {fileID: 2824914299092702024, guid: 6c9acfa32c812eb4eaa08e0b1f4a2e3f, type: 3}

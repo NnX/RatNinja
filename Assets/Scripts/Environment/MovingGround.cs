@@ -6,7 +6,8 @@ namespace Environment
     public class MovingGround : MonoBehaviour
     {
         private const int SlideSpeedAcceleration = 3;
-        private const int GapIncreaseDelta = 5;
+        private int _gapIncreaseDelta = 2;
+        private const int MaxSize = 7;
         private const float MaxBackPositionMultiplier = 1.5f;
 
         [SerializeField] private float movingSpeed;
@@ -21,7 +22,7 @@ namespace Environment
         private void Awake()
         {
             _defaultSpeed = movingSpeed; 
-            //Init platformsPooldd
+            //Init platformsPool
             _platforms = new List<RectTransform>(platformPrefabs.Length);
             for (int i = 0; i < platformPrefabs.Length; i++)
             {
@@ -59,7 +60,11 @@ namespace Environment
         
         public void IncreaseGapSize()
         {
-            _gapSize += GapIncreaseDelta;
+            if (_gapSize > MaxSize)
+            {
+                _gapSize = MaxSize;
+            }
+            _gapSize += _gapIncreaseDelta;
         }
 
         private void Update()

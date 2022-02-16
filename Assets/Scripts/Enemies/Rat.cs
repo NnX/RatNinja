@@ -7,44 +7,33 @@ namespace Enemies
     public class Rat : SomethingHarmful, IResetable
     {
         private float _moveSpeed = 1f;
-        private RectTransform _targetTransform;
         private Vector2 _position;
         private Vector2 _transformPosition;
         private Vector3 _target;
         private Vector3 _startPosition;
+        private Vector3 _movement;
         private float _defaultSpeed;
 
         private void Awake()
         {
-            _startPosition = transform.position;
+            /*var ratTransform = transform;
+            _startPosition = ratTransform.position;
+            _targetTransform = (RectTransform)ratTransform;*/
+            _movement = new Vector3(-1, 0, 0);
             damage = 20;
+            // TODO move rat without target transform
         }
 
         private void Update()
         {
-            if(_targetTransform != null)
-            {
-                var current = transform.position;
-                _target.x = _targetTransform.position.x;
-                _target.y = current.y;
-                _target.z = 1f;
-            
-                current = Vector3.MoveTowards(current, _target,_moveSpeed * Time.deltaTime);
-                transform.position = current;
-
-                if (current.x <= _target.x && gameObject.activeSelf)
-                {
-                    Disable();
-                }
-            }
+            transform.Translate(_movement * _moveSpeed * Time.deltaTime);
         }
 
-        public void SetTargetPosition(RectTransform targetTransform, float moveSpeed, float deltaSpeed)
+        public void SetTargetPosition(float moveSpeed, float deltaSpeed)
         {
             Reset();
             _defaultSpeed = Random.Range(moveSpeed, moveSpeed + deltaSpeed);
             _moveSpeed = _defaultSpeed;
-            _targetTransform = targetTransform;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

@@ -7,16 +7,22 @@ namespace GameEnvironment
 {
     public class GameController : MonoBehaviour
     {
-        private const float TimeToIncreaseDifficulty = 5f;
+        private const float TimeToIncreaseDifficulty = 1f;
         [SerializeField] private GameObject slainedWindow;
         [SerializeField] private GameObject pauseWindowPrefab;
-        [SerializeField] private MovingGround movingGround;
-        [SerializeField] private EnemySpawner enemySpawner;
+        [SerializeField] private GameObject movingGroundPrefab;
+        [SerializeField] private GameObject spawnerPrefab;
+        [SerializeField] private RectTransform movingGroundRoot;
+        [SerializeField] private RectTransform spawnerRoot;
+
         [HideInInspector] public int levelKills;
     
         private SaveKeeper _saveKeeper;
         private bool _isGameOnPause;
         private float _timer;
+        
+        private MovingGround _movingGround;
+        private EnemySpawner _enemySpawner;
         public SaveKeeper SaveKeeper => _saveKeeper ??= new SaveKeeper();
         public static GameController Instance { get; private set; }
 
@@ -35,6 +41,20 @@ namespace GameEnvironment
         {
             SaveKeeper.LoadDataBox();
             SaveKeeper.SaveDataBox();
+            
+            // Spawn moving ground and spawner
+            var movingGroundObj = Instantiate(movingGroundPrefab, movingGroundRoot);
+            if (movingGroundObj.TryGetComponent<MovingGround>(out var movingGround))
+            {
+                _movingGround = movingGround;
+            }
+            
+            
+            var ratSpawner = Instantiate(spawnerPrefab, spawnerRoot);
+            if (ratSpawner.TryGetComponent<EnemySpawner>(out var enemySpawner))
+            {
+                _enemySpawner = enemySpawner;
+            }
         }
 
         private void Update()
@@ -43,7 +63,7 @@ namespace GameEnvironment
             if (_timer> TimeToIncreaseDifficulty)
             {
                 ResetDifficultyTimer();
-                movingGround.IncreaseGapSize();
+                _movingGround.IncreaseGapSize();
             }
         }
 
@@ -66,7 +86,6 @@ namespace GameEnvironment
         public void RestartGame()
         {
             LevelController.Instance.RestartGame();
-            movingGround.ResetGapSize();
             ResetDifficultyTimer();
             ResumeGame();
         }
@@ -110,13 +129,13 @@ namespace GameEnvironment
         }
         public void SetSpeed()
         {
-            enemySpawner.IncreaseSpeed();
-            movingGround.SetMoveSpeed();
+            _enemySpawner.IncreaseSpeed();
+            _movingGround.SetMoveSpeed();
         }
         public void ResetSpeed()
         {
-            enemySpawner.ResetSpeed();
-            movingGround.ResetSpeed();
+            _enemySpawner.ResetSpeed();
+            _movingGround.ResetSpeed();
         }
     }
 }
