@@ -16,12 +16,9 @@ namespace Enemies
 
         private void Awake()
         {
-            /*var ratTransform = transform;
-            _startPosition = ratTransform.position;
-            _targetTransform = (RectTransform)ratTransform;*/
+            _startPosition = transform.position;
             _movement = new Vector3(-1, 0, 0);
             damage = 20;
-            // TODO move rat without target transform
         }
 
         private void Update()

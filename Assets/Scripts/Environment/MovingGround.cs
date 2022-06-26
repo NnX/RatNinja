@@ -6,8 +6,8 @@ namespace Environment
     public class MovingGround : MonoBehaviour
     {
         private const int SlideSpeedAcceleration = 3;
-        private int _gapIncreaseDelta = 2;
-        private const int MaxSize = 7;
+        private int _gapIncreaseDelta = 1;
+        private const int MaxSize = 5;
         private const float MaxBackPositionMultiplier = 1.5f;
 
         [SerializeField] private float movingSpeed;
@@ -23,6 +23,11 @@ namespace Environment
         {
             _defaultSpeed = movingSpeed; 
             //Init platformsPool
+            InitPlatforms();
+        }
+
+        private void InitPlatforms()
+        {
             _platforms = new List<RectTransform>(platformPrefabs.Length);
             for (int i = 0; i < platformPrefabs.Length; i++)
             {
@@ -44,6 +49,14 @@ namespace Environment
             }
         }
 
+        public void ReinitPlatforms()
+        {
+            foreach (var platform in _platforms)
+            {
+                Destroy(platform.gameObject);
+            }
+            InitPlatforms();
+        }
         public void SetMoveSpeed()
         {
             movingSpeed = _defaultSpeed * SlideSpeedAcceleration;

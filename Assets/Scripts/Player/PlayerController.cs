@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D _myBody;
     private bool _isGrounded;
     private bool _jumped;
-    private float _defaultYposition;
+    private float _defaultYPosition;
+    private Vector2 _defaultPosition;
     private GameObject _jumpFx;
     private GameObject _slideFx;
 
@@ -34,7 +35,15 @@ public class PlayerController : MonoBehaviour {
         
         _myBody = GetComponent<Rigidbody2D>();
 
-        _defaultYposition = groundCheckPosition.position.y;
+        _defaultYPosition = groundCheckPosition.position.y;
+        _defaultPosition = groundCheckPosition.position;
+    }
+
+    public void Reset()
+    {
+        _jumped = false;
+        transform.position = _defaultPosition;
+        weaponController.Reset();
     }
 
     private void Update () {
@@ -131,8 +140,8 @@ public class PlayerController : MonoBehaviour {
 
     private void JumpCheck()
     {
-        _jumped = !(groundCheckPosition.position.y <= _defaultYposition);
-        if (groundCheckPosition.position.y <= _defaultYposition - 5 && !GameController.Instance.GameStopped())
+        _jumped = !(groundCheckPosition.position.y <= _defaultYPosition);
+        if (groundCheckPosition.position.y <= _defaultYPosition - 5 && !GameController.Instance.GameStopped())
         {
             GameController.Instance.PauseGame();
             GameController.Instance.ShowGameOverWindow();

@@ -12,8 +12,8 @@ namespace GameEnvironment
         [SerializeField] private GameObject pauseWindowPrefab;
         [SerializeField] private GameObject movingGroundPrefab;
         [SerializeField] private GameObject spawnerPrefab;
-        [SerializeField] private RectTransform movingGroundRoot;
-        [SerializeField] private RectTransform spawnerRoot;
+        private RectTransform _movingGroundRoot;
+        private RectTransform _spawnerRoot;
 
         [HideInInspector] public int levelKills;
     
@@ -35,6 +35,9 @@ namespace GameEnvironment
 
             Instance = this;
             DontDestroyOnLoad(Instance.gameObject);
+            //DontDestroyOnLoad(gameObject);
+            _spawnerRoot = (RectTransform)FindObjectOfType<SpawnerRoot>().transform;
+            _movingGroundRoot = (RectTransform)FindObjectOfType<MovingGroundRoot>().transform;
         }
 
         private void Start()
@@ -43,14 +46,14 @@ namespace GameEnvironment
             SaveKeeper.SaveDataBox();
             
             // Spawn moving ground and spawner
-            var movingGroundObj = Instantiate(movingGroundPrefab, movingGroundRoot);
+            var movingGroundObj = Instantiate(movingGroundPrefab, _movingGroundRoot);
             if (movingGroundObj.TryGetComponent<MovingGround>(out var movingGround))
             {
                 _movingGround = movingGround;
             }
             
             
-            var ratSpawner = Instantiate(spawnerPrefab, spawnerRoot);
+            var ratSpawner = Instantiate(spawnerPrefab, _spawnerRoot);
             if (ratSpawner.TryGetComponent<EnemySpawner>(out var enemySpawner))
             {
                 _enemySpawner = enemySpawner;
@@ -85,9 +88,17 @@ namespace GameEnvironment
 
         public void RestartGame()
         {
-            LevelController.Instance.RestartGame();
+            //LevelController.Instance.RestartGame();
+            _movingGround.ReinitPlatforms();
+            _movingGround.ResetGapSize();
+            ResetSpeed();
             ResetDifficultyTimer();
-            ResumeGame();
+            ResumeGame(); 
+            
+            var playerController = FindObjectOfType<PlayerController>();
+            playerController.Reset();
+            var playerHealth = FindObjectOfType<PlayerHealth>();
+            playerHealth.Reset();
         }
 
         public void ToWorldMap()
@@ -107,6 +118,7 @@ namespace GameEnvironment
             Time.timeScale = 1f;
         }
 
+        private GameObject _gameOverWindow;
         public void ShowGameOverWindow()
         {
             if (levelKills > SaveKeeper.GetLevelKillsCount(LevelController.Instance.CurrentLevel))
@@ -115,18 +127,35 @@ namespace GameEnvironment
                 SaveKeeper.SaveDataBox();
             }
 
-            var slaineWindow = Instantiate(slainedWindow, new Vector3(0, 0, 0), Quaternion.identity);
+            _gameOverWindow = Instantiate(slainedWindow, new Vector3(0, 0, 0), Quaternion.identity);
             var canvas = FindObjectOfType<Canvas>();
-            slaineWindow.transform.SetParent(canvas.transform, false);
+            _gameOverWindow.transform.SetParent(canvas.transform, false);
+            
+            
         }
 
-        public void ShowPauseWindow()
+        private GameObject _pauseWindow;
+        public void ShowPauseWindow(bool isSHow)
         {
-            _isGameOnPause = true;
-            var pauseWindow = Instantiate(pauseWindowPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            var canvas = FindObjectOfType<Canvas>();
-            pauseWindow.transform.SetParent(canvas.transform, false);
+            _isGameOnPause = isSHow;
+            if (isSHow)
+            {
+                
+                _pauseWindow = Instantiate(pauseWindowPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                var canvas = FindObjectOfType<Canvas>();
+                _pauseWindow.transform.SetParent(canvas.transform, false); 
+            }
+            else
+            {
+                ResumeGame();
+                if (_pauseWindow)
+                {
+                 Destroy(_pauseWindow);   
+                }   
+            }
+
         }
+        
         public void SetSpeed()
         {
             _enemySpawner.IncreaseSpeed();

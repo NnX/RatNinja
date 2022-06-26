@@ -141,10 +141,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8079392603681820815, guid: 029e3d9263ba8c54c9a5c2a8f349e4b2,
-          type: 3}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 117602828381012979}
+        m_TargetAssemblyTypeName: UI.Windows.DefaultWindow, Assembly-CSharp
+        m_MethodName: OnClose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -382,7 +381,7 @@ RectTransform:
   - {fileID: 6022187371344349887}
   - {fileID: 6022187370166864191}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

@@ -48,10 +48,6 @@ namespace Enemies
                 {
                     var parent = transform.parent;
                     var enemy = Instantiate(ememyPrefab, parent.position, Quaternion.identity);
-                    enemy.transform.SetParent(parent);
-                    var initPosition = enemy.transform.position;
-                    var position = new Vector3(initPosition.x, initPosition.y, 12);
-                    enemy.transform.position = position;
                     enemy.GetComponent<Rat>().SetTargetPosition(moveSpeed, speedDelta);
                     _enemyPool.Enqueue(enemy);
                 }

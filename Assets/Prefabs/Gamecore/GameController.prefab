@@ -27,9 +27,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.1393082, y: 0.46032047, z: 1.2288309}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8079392603681820815
 MonoBehaviour:
@@ -47,3 +48,8 @@ MonoBehaviour:
     type: 3}
   pauseWindowPrefab: {fileID: 7911430204542490075, guid: 1df9d4b09090e9b469d61b17bd4b3519,
     type: 3}
+  movingGroundPrefab: {fileID: 7211566359224740321, guid: c184c7f3c1459c247a50d611aaec59c1,
+    type: 3}
+  spawnerPrefab: {fileID: 626324099948785356, guid: 4cbae3d50c2cde0479fe2a06f7c1200a,
+    type: 3}
+  levelKills: 0

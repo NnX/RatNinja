@@ -1,32 +1,41 @@
-﻿using GameEnvironment;
+﻿using System;
+using GameEnvironment;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private const int MaxHealth = 100;
     [SerializeField] private Slider healthBar;
-    [SerializeField] private int healthValue = 100;
     [SerializeField] private ParticleSystem particleSystemLeft;
     [SerializeField] private ParticleSystem particleSystemRight;
 
+    private int _currentHealth;
     private void Start()
     {
-        healthBar.value = healthValue;
+        _currentHealth = MaxHealth;
+        healthBar.value = _currentHealth;
+    }
+
+    public void Reset()
+    {
+        _currentHealth = MaxHealth;
+        healthBar.value = MaxHealth;
     }
 
     public void ApplyDamage(int damage)
     {
-        healthValue -= damage;
+        _currentHealth -= damage;
         particleSystemLeft.Play();
         particleSystemRight.Play();
 
-        if (healthValue <= 0)
+        if (_currentHealth <= 0)
         {
-            healthValue = 0;
+            _currentHealth = 0;
             GameController.Instance.PauseGame();
             GameController.Instance.ShowGameOverWindow();
         }
 
-        healthBar.value = healthValue;
+        healthBar.value = _currentHealth;
     }
 }

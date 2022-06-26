@@ -1,9 +1,11 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Enemies;
 using GameEnvironment;
 using GameEnvironment.Controllers;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class WeaponController : MonoBehaviour
 {
@@ -35,6 +37,12 @@ public class WeaponController : MonoBehaviour
             }
             PlayDeathAnimation(body);
         }
+    }
+
+    public void Reset()
+    {
+        GameController.Instance.levelKills = 0;
+        points.text = "0";
     }
 
     public void AllowDamageCollision()

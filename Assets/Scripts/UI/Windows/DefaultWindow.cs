@@ -10,7 +10,8 @@ namespace UI.Windows
         }
     
         public void OnClose() {
-            GameController.Instance.ResumeGame();
+            GameController.Instance.RestartGame();
+            Destroy(gameObject);
             //Destroy(gameObject);
         }
     }
