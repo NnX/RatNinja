@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -59,6 +60,20 @@ namespace Enemies
                 }
             
                 yield return new WaitForSeconds(Random.Range(SpawnDelay, SpawnDelayDelta));
+            }
+        }
+
+        public void Reset()
+        {
+            var count = _enemyPool.Count;
+
+            for (var i = 0; i < count; i++)
+            {
+                _enemy = _enemyPool.Dequeue();
+                if (_enemy != null)
+                {
+                    Destroy(_enemy);
+                }
             }
         }
     }

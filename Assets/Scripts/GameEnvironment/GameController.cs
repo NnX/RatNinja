@@ -89,8 +89,9 @@ namespace GameEnvironment
         public void RestartGame()
         {
             //LevelController.Instance.RestartGame();
-            _movingGround.ReinitPlatforms();
+            _enemySpawner.Reset();
             _movingGround.ResetGapSize();
+            _movingGround.ReinitPlatforms();
             ResetSpeed();
             ResetDifficultyTimer();
             ResumeGame(); 
